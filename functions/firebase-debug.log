@@ -1,0 +1,396 @@
+[debug] [2019-12-28T15:56:46.985Z] ----------------------------------------------------------------------
+[debug] [2019-12-28T15:56:46.989Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Dalton\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2019-12-28T15:56:46.989Z] CLI Version:   7.11.0
+[debug] [2019-12-28T15:56:46.989Z] Platform:      win32
+[debug] [2019-12-28T15:56:46.989Z] Node Version:  v12.13.1
+[debug] [2019-12-28T15:56:47.048Z] Time:          Sat Dec 28 2019 10:56:46 GMT-0500 (Colombia Standard Time)
+[debug] [2019-12-28T15:56:47.048Z] ----------------------------------------------------------------------
+[debug] [2019-12-28T15:56:47.048Z] 
+[debug] [2019-12-28T15:56:47.132Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-28T15:56:47.134Z] > authorizing via signed-in user
+[debug] [2019-12-28T15:56:47.134Z] [iam] checking project myproject-bb84e for permissions ["firebase.projects.get"]
+[debug] [2019-12-28T15:56:47.137Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-12-28T15:56:47.137Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-12-28T15:56:47.586Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-28T15:56:47.630Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-bb84e:testIamPermissions  
+
+[debug] [2019-12-28T15:56:48.003Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-28T15:56:48.005Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/myproject-bb84e  
+ 
+[debug] [2019-12-28T15:56:48.324Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "8" doesn't match your global version "12"
+[info] +  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "C:\Users\Dalton\real-worl-vue\functions" for Cloud Functions...
+[debug] [2019-12-28T15:56:52.859Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2019-12-28T15:56:52.859Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2019-12-28T15:56:52.860Z] [worker-pool] submitWork(triggerId=)
+[debug] [2019-12-28T15:56:52.861Z] [worker-~diagnostic~-052fc182-0857-453d-847f-1702ecabdb87]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\112660
+[debug] [2019-12-28T15:56:52.862Z] [worker-~diagnostic~-052fc182-0857-453d-847f-1702ecabdb87]: BUSY
+[debug] [2019-12-28T15:56:57.988Z] [runtime-status] [112660] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T15:56:57.990Z] [runtime-status] [112660] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T15:56:58.073Z] [runtime-status] [112660] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T15:56:58.135Z] [runtime-status] [112660] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T15:56:58.138Z] [runtime-status] [112660] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[helloWorld]: http function initialized (http://localhost:5000/myproject-bb84e/us-central1/helloWorld).
+[debug] [2019-12-28T15:57:00.947Z] [worker-~diagnostic~-052fc182-0857-453d-847f-1702ecabdb87]: IDLE
+[debug] [2019-12-28T15:57:21.956Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2019-12-28T15:57:21.956Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2019-12-28T15:57:21.957Z] Accepted request GET /myproject-bb84e/us-central1/helloWorld --> helloWorld
+[debug] [2019-12-28T15:57:21.964Z] [worker-pool] addWorker(helloWorld)
+[debug] [2019-12-28T15:57:21.964Z] [worker-pool] Adding worker with key helloWorld, total=1
+[debug] [2019-12-28T15:57:21.964Z] [worker-pool] submitWork(triggerId=helloWorld)
+[debug] [2019-12-28T15:57:21.964Z] [worker-helloWorld-8e057b30-4d8a-4ae2-94d1-762319399743]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\108208
+[debug] [2019-12-28T15:57:21.964Z] [worker-helloWorld-8e057b30-4d8a-4ae2-94d1-762319399743]: BUSY
+[debug] [2019-12-28T15:57:26.138Z] [runtime-status] [108208] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T15:57:26.140Z] [runtime-status] [108208] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T15:57:26.146Z] [runtime-status] [108208] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T15:57:26.150Z] [runtime-status] [108208] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T15:57:26.152Z] [runtime-status] [108208] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T15:57:26.249Z] [runtime-status] [108208] Trigger "helloWorld" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "helloWorld"
+[debug] [2019-12-28T15:57:26.353Z] [runtime-status] [108208] triggerDefinition {"httpsTrigger":{},"name":"helloWorld","entryPoint":"helloWorld"}
+[debug] [2019-12-28T15:57:26.354Z] [runtime-status] [108208] Running helloWorld in mode HTTPS
+[debug] [2019-12-28T15:57:26.354Z] [runtime-status] [108208] Attempting to listen to socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\108208
+[debug] [2019-12-28T15:57:26.365Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-28T15:57:26.385Z] [runtime-status] [108208] Ephemeral server handling GET request
+[debug] [2019-12-28T15:57:26.398Z] [runtime-status] [108208] Ephemeral server survived.
+[info] i  functions: Finished "helloWorld" in ~1s
+[debug] [2019-12-28T15:57:26.439Z] [worker-helloWorld-8e057b30-4d8a-4ae2-94d1-762319399743]: IDLE
+[debug] [2019-12-28T15:57:26.440Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2019-12-28T16:20:17.318Z] File C:\Users\Dalton\real-worl-vue\functions\index.js changed, reloading triggers
+[debug] [2019-12-28T16:20:18.324Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2019-12-28T16:20:18.324Z] [worker-~diagnostic~-052fc182-0857-453d-847f-1702ecabdb87]: FINISHING
+[debug] [2019-12-28T16:20:18.325Z] [worker-pool] Shutting down IDLE worker (helloWorld)
+[debug] [2019-12-28T16:20:18.325Z] [worker-helloWorld-8e057b30-4d8a-4ae2-94d1-762319399743]: FINISHING
+[debug] [2019-12-28T16:20:18.338Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2019-12-28T16:20:18.339Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2019-12-28T16:20:18.339Z] [worker-pool] submitWork(triggerId=)
+[debug] [2019-12-28T16:20:18.339Z] [worker-~diagnostic~-1b83195d-b8ef-4f94-9c33-bcb900003e13]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\120260
+[debug] [2019-12-28T16:20:18.339Z] [worker-~diagnostic~-1b83195d-b8ef-4f94-9c33-bcb900003e13]: BUSY
+[debug] [2019-12-28T16:20:18.341Z] [worker-~diagnostic~-052fc182-0857-453d-847f-1702ecabdb87]: exited
+[debug] [2019-12-28T16:20:18.342Z] [worker-~diagnostic~-052fc182-0857-453d-847f-1702ecabdb87]: FINISHED
+[debug] [2019-12-28T16:20:18.508Z] [worker-helloWorld-8e057b30-4d8a-4ae2-94d1-762319399743]: exited
+[debug] [2019-12-28T16:20:18.508Z] [worker-helloWorld-8e057b30-4d8a-4ae2-94d1-762319399743]: FINISHED
+[debug] [2019-12-28T16:20:28.460Z] [runtime-status] [120260] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T16:20:28.462Z] [runtime-status] [120260] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T16:20:28.539Z] [runtime-status] [120260] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T16:20:28.624Z] [runtime-status] [120260] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:20:28.626Z] [runtime-status] [120260] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[warn] !  C:\Users\Dalton\real-worl-vue\functions\index.js:10
+export.Hello =  functions.https.onRequest((request, response) => {
+^^^^^^
+
+SyntaxError: Unexpected token 'export'
+    at Module._compile (internal/modules/cjs/loader.js:895:18)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+    at Module.load (internal/modules/cjs/loader.js:815:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+    at Module.require (internal/modules/cjs/loader.js:852:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at C:\Users\Dalton\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:718:33
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Dalton\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:4:58)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[warn] !  We were unable to load your functions code. (see above)
+[debug] [2019-12-28T16:20:29.829Z] [worker-~diagnostic~-1b83195d-b8ef-4f94-9c33-bcb900003e13]: exited
+[debug] [2019-12-28T16:20:29.829Z] [worker-~diagnostic~-1b83195d-b8ef-4f94-9c33-bcb900003e13]: FINISHED
+[debug] [2019-12-28T16:21:53.365Z] File C:\Users\Dalton\real-worl-vue\functions\index.js changed, reloading triggers
+[debug] [2019-12-28T16:21:54.368Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 0
+[debug] [2019-12-28T16:21:54.368Z] [worker-pool] Cleaned up workers for helloWorld: 1 --> 0
+[debug] [2019-12-28T16:21:54.480Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2019-12-28T16:21:54.480Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2019-12-28T16:21:54.480Z] [worker-pool] submitWork(triggerId=)
+[debug] [2019-12-28T16:21:54.480Z] [worker-~diagnostic~-0bced7cc-8718-4cf7-89d9-57631f1844aa]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\120884
+[debug] [2019-12-28T16:21:54.481Z] [worker-~diagnostic~-0bced7cc-8718-4cf7-89d9-57631f1844aa]: BUSY
+[debug] [2019-12-28T16:21:56.142Z] [runtime-status] [120884] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T16:21:56.150Z] [runtime-status] [120884] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T16:21:56.165Z] [runtime-status] [120884] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T16:21:56.171Z] [runtime-status] [120884] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:21:56.175Z] [runtime-status] [120884] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[Hello]: http function initialized (http://localhost:5000/myproject-bb84e/us-central1/Hello).
+[debug] [2019-12-28T16:21:56.970Z] [worker-~diagnostic~-0bced7cc-8718-4cf7-89d9-57631f1844aa]: IDLE
+[debug] [2019-12-28T16:22:27.331Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2019-12-28T16:22:27.332Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2019-12-28T16:22:27.332Z] Accepted request GET /myproject-bb84e/us-central1/Hello --> Hello
+[debug] [2019-12-28T16:22:27.368Z] [worker-pool] addWorker(Hello)
+[debug] [2019-12-28T16:22:27.368Z] [worker-pool] Adding worker with key Hello, total=1
+[debug] [2019-12-28T16:22:27.368Z] [worker-pool] submitWork(triggerId=Hello)
+[debug] [2019-12-28T16:22:27.368Z] [worker-Hello-998a4dde-9310-4a16-83ec-39e32860de39]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\122812
+[debug] [2019-12-28T16:22:27.368Z] [worker-Hello-998a4dde-9310-4a16-83ec-39e32860de39]: BUSY
+[debug] [2019-12-28T16:22:29.067Z] [runtime-status] [122812] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T16:22:29.070Z] [runtime-status] [122812] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T16:22:29.076Z] [runtime-status] [122812] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T16:22:29.080Z] [runtime-status] [122812] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:22:29.082Z] [runtime-status] [122812] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:22:29.176Z] [runtime-status] [122812] Trigger "Hello" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Hello"
+[debug] [2019-12-28T16:22:29.177Z] [runtime-status] [122812] triggerDefinition {"httpsTrigger":{},"name":"Hello","entryPoint":"Hello"}
+[debug] [2019-12-28T16:22:29.178Z] [runtime-status] [122812] Running Hello in mode HTTPS
+[debug] [2019-12-28T16:22:29.184Z] [runtime-status] [122812] Attempting to listen to socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\122812
+[debug] [2019-12-28T16:22:29.272Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-28T16:22:29.453Z] [runtime-status] [122812] Ephemeral server handling GET request
+[debug] [2019-12-28T16:22:29.460Z] [runtime-status] [122812] Ephemeral server survived.
+[info] i  functions: Finished "Hello" in ~1s
+[debug] [2019-12-28T16:22:29.568Z] [worker-Hello-998a4dde-9310-4a16-83ec-39e32860de39]: IDLE
+[debug] [2019-12-28T16:22:29.568Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2019-12-28T16:23:22.559Z] File C:\Users\Dalton\real-worl-vue\functions\index.js changed, reloading triggers
+[debug] [2019-12-28T16:23:23.560Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2019-12-28T16:23:23.560Z] [worker-~diagnostic~-0bced7cc-8718-4cf7-89d9-57631f1844aa]: FINISHING
+[debug] [2019-12-28T16:23:23.561Z] [worker-pool] Shutting down IDLE worker (Hello)
+[debug] [2019-12-28T16:23:23.561Z] [worker-Hello-998a4dde-9310-4a16-83ec-39e32860de39]: FINISHING
+[debug] [2019-12-28T16:23:23.569Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2019-12-28T16:23:23.569Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2019-12-28T16:23:23.570Z] [worker-pool] submitWork(triggerId=)
+[debug] [2019-12-28T16:23:23.570Z] [worker-~diagnostic~-53c529c2-3e68-4161-9428-c3bcf7efca36]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\116176
+[debug] [2019-12-28T16:23:23.570Z] [worker-~diagnostic~-53c529c2-3e68-4161-9428-c3bcf7efca36]: BUSY
+[debug] [2019-12-28T16:23:23.571Z] [worker-~diagnostic~-0bced7cc-8718-4cf7-89d9-57631f1844aa]: exited
+[debug] [2019-12-28T16:23:23.572Z] [worker-~diagnostic~-0bced7cc-8718-4cf7-89d9-57631f1844aa]: FINISHED
+[debug] [2019-12-28T16:23:23.572Z] [worker-Hello-998a4dde-9310-4a16-83ec-39e32860de39]: exited
+[debug] [2019-12-28T16:23:23.572Z] [worker-Hello-998a4dde-9310-4a16-83ec-39e32860de39]: FINISHED
+[debug] [2019-12-28T16:23:24.470Z] [runtime-status] [116176] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T16:23:24.472Z] [runtime-status] [116176] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T16:23:24.478Z] [runtime-status] [116176] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T16:23:24.483Z] [runtime-status] [116176] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:23:24.485Z] [runtime-status] [116176] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:23:24.578Z] [worker-~diagnostic~-53c529c2-3e68-4161-9428-c3bcf7efca36]: IDLE
+[debug] [2019-12-28T16:24:22.883Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2019-12-28T16:24:22.883Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2019-12-28T16:24:22.883Z] Accepted request GET /myproject-bb84e/us-central1/Hello --> Hello
+[debug] [2019-12-28T16:24:22.883Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2019-12-28T16:24:22.883Z] [worker-pool] Cleaned up workers for Hello: 1 --> 0
+[debug] [2019-12-28T16:24:22.888Z] [worker-pool] addWorker(Hello)
+[debug] [2019-12-28T16:24:22.889Z] [worker-pool] Adding worker with key Hello, total=1
+[debug] [2019-12-28T16:24:22.889Z] [worker-pool] submitWork(triggerId=Hello)
+[debug] [2019-12-28T16:24:22.889Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\121660
+[debug] [2019-12-28T16:24:22.889Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: BUSY
+[debug] [2019-12-28T16:24:23.694Z] [runtime-status] [121660] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T16:24:23.696Z] [runtime-status] [121660] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T16:24:23.702Z] [runtime-status] [121660] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T16:24:23.705Z] [runtime-status] [121660] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:24:23.708Z] [runtime-status] [121660] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:24:23.800Z] [runtime-status] [121660] Trigger "Hello" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Hello"
+[debug] [2019-12-28T16:24:23.802Z] [runtime-status] [121660] triggerDefinition {"httpsTrigger":{},"name":"Hello","entryPoint":"Hello"}
+[debug] [2019-12-28T16:24:23.802Z] [runtime-status] [121660] Running Hello in mode HTTPS
+[debug] [2019-12-28T16:24:23.808Z] [runtime-status] [121660] Attempting to listen to socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\121660
+[debug] [2019-12-28T16:24:23.821Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-28T16:24:23.833Z] [runtime-status] [121660] Ephemeral server handling GET request
+[debug] [2019-12-28T16:24:23.840Z] [runtime-status] [121660] Ephemeral server survived.
+[info] i  functions: Finished "Hello" in ~1s
+[debug] [2019-12-28T16:24:23.917Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: IDLE
+[debug] [2019-12-28T16:24:23.917Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2019-12-28T16:26:14.453Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2019-12-28T16:26:14.453Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2019-12-28T16:26:14.453Z] Accepted request GET /myproject-bb84e/us-central1/Hello?name=Daequan --> Hello
+[debug] [2019-12-28T16:26:14.453Z] [worker-pool] submitWork(triggerId=Hello)
+[debug] [2019-12-28T16:26:14.453Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\121660
+[debug] [2019-12-28T16:26:14.453Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: BUSY
+[debug] [2019-12-28T16:26:14.454Z] [runtime-status] [121660] Trigger "Hello" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Hello"
+[debug] [2019-12-28T16:26:14.456Z] [runtime-status] [121660] triggerDefinition {"httpsTrigger":{},"name":"Hello","entryPoint":"Hello"}
+[debug] [2019-12-28T16:26:14.456Z] [runtime-status] [121660] Running Hello in mode HTTPS
+[debug] [2019-12-28T16:26:14.456Z] [runtime-status] [121660] Attempting to listen to socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\121660
+[debug] [2019-12-28T16:26:14.515Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-28T16:26:14.521Z] [runtime-status] [121660] Ephemeral server handling GET request
+[debug] [2019-12-28T16:26:14.523Z] [runtime-status] [121660] Ephemeral server survived.
+[info] i  functions: Finished "Hello" in ~1s
+[debug] [2019-12-28T16:26:14.524Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: IDLE
+[debug] [2019-12-28T16:26:14.525Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2019-12-28T16:34:11.755Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2019-12-28T16:34:11.756Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2019-12-28T16:34:11.756Z] Accepted request GET /myproject-bb84e/us-central1/Hello --> Hello
+[debug] [2019-12-28T16:34:11.756Z] [worker-pool] submitWork(triggerId=Hello)
+[debug] [2019-12-28T16:34:11.756Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\121660
+[debug] [2019-12-28T16:34:11.756Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: BUSY
+[debug] [2019-12-28T16:34:11.757Z] [runtime-status] [121660] Trigger "Hello" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Hello"
+[debug] [2019-12-28T16:34:11.758Z] [runtime-status] [121660] triggerDefinition {"httpsTrigger":{},"name":"Hello","entryPoint":"Hello"}
+[debug] [2019-12-28T16:34:11.759Z] [runtime-status] [121660] Running Hello in mode HTTPS
+[debug] [2019-12-28T16:34:11.760Z] [runtime-status] [121660] Attempting to listen to socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\121660
+[debug] [2019-12-28T16:34:11.762Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-28T16:34:11.765Z] [runtime-status] [121660] Ephemeral server handling GET request
+[debug] [2019-12-28T16:34:11.766Z] [runtime-status] [121660] Ephemeral server survived.
+[info] i  functions: Finished "Hello" in ~1s
+[debug] [2019-12-28T16:34:11.768Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: IDLE
+[debug] [2019-12-28T16:34:11.768Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2019-12-28T16:35:52.168Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2019-12-28T16:35:52.169Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2019-12-28T16:35:52.169Z] Accepted request GET /myproject-bb84e/us-central1/Hello?name=Daequan&Lastname=Smith --> Hello
+[debug] [2019-12-28T16:35:52.169Z] [worker-pool] submitWork(triggerId=Hello)
+[debug] [2019-12-28T16:35:52.169Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\121660
+[debug] [2019-12-28T16:35:52.169Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: BUSY
+[debug] [2019-12-28T16:35:52.170Z] [runtime-status] [121660] Trigger "Hello" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Hello"
+[debug] [2019-12-28T16:35:52.171Z] [runtime-status] [121660] triggerDefinition {"httpsTrigger":{},"name":"Hello","entryPoint":"Hello"}
+[debug] [2019-12-28T16:35:52.171Z] [runtime-status] [121660] Running Hello in mode HTTPS
+[debug] [2019-12-28T16:35:52.172Z] [runtime-status] [121660] Attempting to listen to socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\121660
+[debug] [2019-12-28T16:35:52.174Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-28T16:35:52.177Z] [runtime-status] [121660] Ephemeral server handling GET request
+[debug] [2019-12-28T16:35:52.179Z] [runtime-status] [121660] Ephemeral server survived.
+[info] i  functions: Finished "Hello" in ~1s
+[debug] [2019-12-28T16:35:52.181Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: IDLE
+[debug] [2019-12-28T16:35:52.181Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2019-12-28T16:36:57.373Z] File C:\Users\Dalton\real-worl-vue\functions\index.js changed, reloading triggers
+[debug] [2019-12-28T16:36:58.401Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2019-12-28T16:36:58.402Z] [worker-~diagnostic~-53c529c2-3e68-4161-9428-c3bcf7efca36]: FINISHING
+[debug] [2019-12-28T16:36:58.494Z] [worker-pool] Shutting down IDLE worker (Hello)
+[debug] [2019-12-28T16:36:58.494Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: FINISHING
+[debug] [2019-12-28T16:36:58.502Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2019-12-28T16:36:58.503Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2019-12-28T16:36:58.503Z] [worker-pool] submitWork(triggerId=)
+[debug] [2019-12-28T16:36:58.503Z] [worker-~diagnostic~-3e96f865-0fd8-42ef-abe3-06d62ef68589]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\8480
+[debug] [2019-12-28T16:36:58.503Z] [worker-~diagnostic~-3e96f865-0fd8-42ef-abe3-06d62ef68589]: BUSY
+[debug] [2019-12-28T16:36:58.541Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: exited
+[debug] [2019-12-28T16:36:58.542Z] [worker-Hello-2dee87fb-4342-4d93-8ad2-0460bf748815]: FINISHED
+[debug] [2019-12-28T16:36:58.542Z] [worker-~diagnostic~-53c529c2-3e68-4161-9428-c3bcf7efca36]: exited
+[debug] [2019-12-28T16:36:58.542Z] [worker-~diagnostic~-53c529c2-3e68-4161-9428-c3bcf7efca36]: FINISHED
+[debug] [2019-12-28T16:36:59.286Z] [runtime-status] [8480] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T16:36:59.287Z] [runtime-status] [8480] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T16:36:59.293Z] [runtime-status] [8480] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T16:36:59.297Z] [runtime-status] [8480] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:36:59.300Z] [runtime-status] [8480] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:36:59.391Z] [worker-~diagnostic~-3e96f865-0fd8-42ef-abe3-06d62ef68589]: IDLE
+[debug] [2019-12-28T16:37:03.312Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2019-12-28T16:37:03.312Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2019-12-28T16:37:03.313Z] Accepted request GET /myproject-bb84e/us-central1/Hello?name=Daequan&Lastname=Smith --> Hello
+[debug] [2019-12-28T16:37:03.313Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2019-12-28T16:37:03.313Z] [worker-pool] Cleaned up workers for Hello: 1 --> 0
+[debug] [2019-12-28T16:37:03.317Z] [worker-pool] addWorker(Hello)
+[debug] [2019-12-28T16:37:03.317Z] [worker-pool] Adding worker with key Hello, total=1
+[debug] [2019-12-28T16:37:03.318Z] [worker-pool] submitWork(triggerId=Hello)
+[debug] [2019-12-28T16:37:03.318Z] [worker-Hello-c971c576-bb53-4ad2-8cbd-e023953c61d5]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\120168
+[debug] [2019-12-28T16:37:03.318Z] [worker-Hello-c971c576-bb53-4ad2-8cbd-e023953c61d5]: BUSY
+[debug] [2019-12-28T16:37:04.311Z] [runtime-status] [120168] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T16:37:04.313Z] [runtime-status] [120168] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T16:37:04.320Z] [runtime-status] [120168] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T16:37:04.325Z] [runtime-status] [120168] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:37:04.327Z] [runtime-status] [120168] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:37:04.445Z] [runtime-status] [120168] Trigger "Hello" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Hello"
+[debug] [2019-12-28T16:37:04.447Z] [runtime-status] [120168] triggerDefinition {"httpsTrigger":{},"name":"Hello","entryPoint":"Hello"}
+[debug] [2019-12-28T16:37:04.447Z] [runtime-status] [120168] Running Hello in mode HTTPS
+[debug] [2019-12-28T16:37:04.459Z] [runtime-status] [120168] Attempting to listen to socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\120168
+[debug] [2019-12-28T16:37:04.473Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-28T16:37:04.495Z] [runtime-status] [120168] Ephemeral server handling GET request
+[debug] [2019-12-28T16:37:04.507Z] [runtime-status] [120168] Ephemeral server survived.
+[info] i  functions: Finished "Hello" in ~1s
+[debug] [2019-12-28T16:37:04.518Z] [worker-Hello-c971c576-bb53-4ad2-8cbd-e023953c61d5]: IDLE
+[debug] [2019-12-28T16:37:04.518Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2019-12-28T16:41:51.798Z] File C:\Users\Dalton\real-worl-vue\functions\index.js changed, reloading triggers
+[debug] [2019-12-28T16:41:52.799Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2019-12-28T16:41:52.799Z] [worker-~diagnostic~-3e96f865-0fd8-42ef-abe3-06d62ef68589]: FINISHING
+[debug] [2019-12-28T16:41:52.800Z] [worker-pool] Shutting down IDLE worker (Hello)
+[debug] [2019-12-28T16:41:52.800Z] [worker-Hello-c971c576-bb53-4ad2-8cbd-e023953c61d5]: FINISHING
+[debug] [2019-12-28T16:41:52.832Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2019-12-28T16:41:52.832Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2019-12-28T16:41:52.832Z] [worker-pool] submitWork(triggerId=)
+[debug] [2019-12-28T16:41:52.832Z] [worker-~diagnostic~-1762b711-0286-4ee7-aa23-92fc55390dbf]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\116892
+[debug] [2019-12-28T16:41:52.832Z] [worker-~diagnostic~-1762b711-0286-4ee7-aa23-92fc55390dbf]: BUSY
+[debug] [2019-12-28T16:41:52.834Z] [worker-Hello-c971c576-bb53-4ad2-8cbd-e023953c61d5]: exited
+[debug] [2019-12-28T16:41:52.834Z] [worker-Hello-c971c576-bb53-4ad2-8cbd-e023953c61d5]: FINISHED
+[debug] [2019-12-28T16:41:52.834Z] [worker-~diagnostic~-3e96f865-0fd8-42ef-abe3-06d62ef68589]: exited
+[debug] [2019-12-28T16:41:52.834Z] [worker-~diagnostic~-3e96f865-0fd8-42ef-abe3-06d62ef68589]: FINISHED
+[debug] [2019-12-28T16:41:53.900Z] [runtime-status] [116892] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T16:41:53.902Z] [runtime-status] [116892] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T16:41:53.908Z] [runtime-status] [116892] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T16:41:53.912Z] [runtime-status] [116892] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:41:53.915Z] [runtime-status] [116892] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:41:54.017Z] [worker-~diagnostic~-1762b711-0286-4ee7-aa23-92fc55390dbf]: IDLE
+[debug] [2019-12-28T16:42:02.761Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2019-12-28T16:42:02.762Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2019-12-28T16:42:02.762Z] Accepted request GET /myproject-bb84e/us-central1/Hello?name=Daequan&Lastname=Smith --> Hello
+[debug] [2019-12-28T16:42:02.762Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2019-12-28T16:42:02.762Z] [worker-pool] Cleaned up workers for Hello: 1 --> 0
+[debug] [2019-12-28T16:42:02.768Z] [worker-pool] addWorker(Hello)
+[debug] [2019-12-28T16:42:02.768Z] [worker-pool] Adding worker with key Hello, total=1
+[debug] [2019-12-28T16:42:02.768Z] [worker-pool] submitWork(triggerId=Hello)
+[debug] [2019-12-28T16:42:02.769Z] [worker-Hello-801f53c6-55da-4d1b-b3bb-35a35bd2b2bf]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\94672
+[debug] [2019-12-28T16:42:02.769Z] [worker-Hello-801f53c6-55da-4d1b-b3bb-35a35bd2b2bf]: BUSY
+[debug] [2019-12-28T16:42:03.626Z] [runtime-status] [94672] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T16:42:03.628Z] [runtime-status] [94672] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T16:42:03.634Z] [runtime-status] [94672] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T16:42:03.637Z] [runtime-status] [94672] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:42:03.640Z] [runtime-status] [94672] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:42:03.738Z] [runtime-status] [94672] Trigger "Hello" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Hello"
+[debug] [2019-12-28T16:42:03.739Z] [runtime-status] [94672] triggerDefinition {"httpsTrigger":{},"name":"Hello","entryPoint":"Hello"}
+[debug] [2019-12-28T16:42:03.740Z] [runtime-status] [94672] Running Hello in mode HTTPS
+[debug] [2019-12-28T16:42:03.748Z] [runtime-status] [94672] Attempting to listen to socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\94672
+[debug] [2019-12-28T16:42:03.758Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-28T16:42:03.771Z] [runtime-status] [94672] Ephemeral server handling GET request
+[debug] [2019-12-28T16:42:03.772Z] [runtime-status] [94672] Ephemeral server survived.
+[warn] !  functions: ReferenceError: method is not defined
+    at C:\Users\Dalton\real-worl-vue\functions\index.js:11:2
+    at C:\Users\Dalton\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:621:20
+    at C:\Users\Dalton\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:596:19
+    at Generator.next (<anonymous>)
+    at C:\Users\Dalton\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Dalton\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:3:12)
+    at runFunction (C:\Users\Dalton\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:593:12)
+    at C:\Users\Dalton\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:620:15
+    at Generator.next (<anonymous>)
+[warn] !  Your function was killed because it raised an unhandled error.
+[debug] [2019-12-28T16:42:03.947Z] [worker-Hello-801f53c6-55da-4d1b-b3bb-35a35bd2b2bf]: exited
+[debug] [2019-12-28T16:42:03.947Z] [worker-Hello-801f53c6-55da-4d1b-b3bb-35a35bd2b2bf]: FINISHED
+[debug] [2019-12-28T16:42:03.947Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2019-12-28T16:42:46.352Z] File C:\Users\Dalton\real-worl-vue\functions\index.js changed, reloading triggers
+[debug] [2019-12-28T16:42:47.353Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2019-12-28T16:42:47.353Z] [worker-~diagnostic~-1762b711-0286-4ee7-aa23-92fc55390dbf]: FINISHING
+[debug] [2019-12-28T16:42:47.353Z] [worker-pool] Cleaned up workers for Hello: 1 --> 0
+[debug] [2019-12-28T16:42:47.362Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2019-12-28T16:42:47.362Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2019-12-28T16:42:47.362Z] [worker-pool] submitWork(triggerId=)
+[debug] [2019-12-28T16:42:47.363Z] [worker-~diagnostic~-e898409f-7952-45b0-88e9-e70e3091fa7a]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\122584
+[debug] [2019-12-28T16:42:47.363Z] [worker-~diagnostic~-e898409f-7952-45b0-88e9-e70e3091fa7a]: BUSY
+[debug] [2019-12-28T16:42:47.364Z] [worker-~diagnostic~-1762b711-0286-4ee7-aa23-92fc55390dbf]: exited
+[debug] [2019-12-28T16:42:47.364Z] [worker-~diagnostic~-1762b711-0286-4ee7-aa23-92fc55390dbf]: FINISHED
+[debug] [2019-12-28T16:42:48.282Z] [runtime-status] [122584] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T16:42:48.284Z] [runtime-status] [122584] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T16:42:48.290Z] [runtime-status] [122584] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T16:42:48.294Z] [runtime-status] [122584] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:42:48.297Z] [runtime-status] [122584] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:42:48.418Z] [worker-~diagnostic~-e898409f-7952-45b0-88e9-e70e3091fa7a]: IDLE
+[debug] [2019-12-28T16:42:51.793Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2019-12-28T16:42:51.794Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2019-12-28T16:42:51.794Z] Accepted request GET /myproject-bb84e/us-central1/Hello?name=Daequan&Lastname=Smith --> Hello
+[debug] [2019-12-28T16:42:51.794Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2019-12-28T16:42:51.798Z] [worker-pool] addWorker(Hello)
+[debug] [2019-12-28T16:42:51.798Z] [worker-pool] Adding worker with key Hello, total=1
+[debug] [2019-12-28T16:42:51.798Z] [worker-pool] submitWork(triggerId=Hello)
+[debug] [2019-12-28T16:42:51.799Z] [worker-Hello-667feb0a-5f19-4195-bfe6-d0621044709b]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\117952
+[debug] [2019-12-28T16:42:51.799Z] [worker-Hello-667feb0a-5f19-4195-bfe6-d0621044709b]: BUSY
+[debug] [2019-12-28T16:42:52.634Z] [runtime-status] [117952] Functions runtime initialized. {"cwd":"C:\\Users\\Dalton\\real-worl-vue\\functions","node_version":"12.13.1"}
+[debug] [2019-12-28T16:42:52.637Z] [runtime-status] [117952] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2019-12-28T16:42:52.644Z] [runtime-status] [117952] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-12-28T16:42:52.648Z] [runtime-status] [117952] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:42:52.649Z] [runtime-status] [117952] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Dalton\\real-worl-vue\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-12-28T16:42:52.745Z] [runtime-status] [117952] Trigger "Hello" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Hello"
+[debug] [2019-12-28T16:42:52.747Z] [runtime-status] [117952] triggerDefinition {"httpsTrigger":{},"name":"Hello","entryPoint":"Hello"}
+[debug] [2019-12-28T16:42:52.747Z] [runtime-status] [117952] Running Hello in mode HTTPS
+[debug] [2019-12-28T16:42:52.754Z] [runtime-status] [117952] Attempting to listen to socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\117952
+[debug] [2019-12-28T16:42:52.765Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-28T16:42:52.815Z] [runtime-status] [117952] Ephemeral server handling GET request
+[debug] [2019-12-28T16:42:52.824Z] [runtime-status] [117952] Ephemeral server survived.
+[info] i  functions: Finished "Hello" in ~1s
+[debug] [2019-12-28T16:42:52.833Z] [worker-Hello-667feb0a-5f19-4195-bfe6-d0621044709b]: IDLE
+[debug] [2019-12-28T16:42:52.833Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2019-12-28T16:43:02.091Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2019-12-28T16:43:02.091Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2019-12-28T16:43:02.091Z] Accepted request POST /myproject-bb84e/us-central1/Hello?name=Daequan&Lastname=Smith --> Hello
+[debug] [2019-12-28T16:43:02.091Z] [worker-pool] submitWork(triggerId=Hello)
+[debug] [2019-12-28T16:43:02.092Z] [worker-Hello-667feb0a-5f19-4195-bfe6-d0621044709b]: Assigning socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\117952
+[debug] [2019-12-28T16:43:02.092Z] [worker-Hello-667feb0a-5f19-4195-bfe6-d0621044709b]: BUSY
+[debug] [2019-12-28T16:43:02.093Z] [runtime-status] [117952] Trigger "Hello" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Hello"
+[debug] [2019-12-28T16:43:02.094Z] [runtime-status] [117952] triggerDefinition {"httpsTrigger":{},"name":"Hello","entryPoint":"Hello"}
+[debug] [2019-12-28T16:43:02.094Z] [runtime-status] [117952] Running Hello in mode HTTPS
+[debug] [2019-12-28T16:43:02.094Z] [runtime-status] [117952] Attempting to listen to socketPath: \\?\pipe\C:\Users\Dalton\real-worl-vue\functions\117952
+[debug] [2019-12-28T16:43:02.097Z] [functions] Runtime ready! Sending request!
+[debug] [2019-12-28T16:43:02.103Z] [runtime-status] [117952] Ephemeral server handling POST request
+[debug] [2019-12-28T16:43:02.105Z] [runtime-status] [117952] Ephemeral server survived.
+[info] i  functions: Finished "Hello" in ~1s
+[debug] [2019-12-28T16:43:02.106Z] [worker-Hello-667feb0a-5f19-4195-bfe6-d0621044709b]: IDLE
+[debug] [2019-12-28T16:43:02.106Z] [work-queue] {"queueLength":0,"workRunningCount":0}
