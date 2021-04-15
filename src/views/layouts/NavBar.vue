@@ -56,6 +56,19 @@
       </ul>
     </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="uk-navbar-right uk-hidden@l uk-text-justify">
       <div style="" class="uk-navbar-right" >
         <ul class="uk-navbar-nav"  >
@@ -178,9 +191,9 @@ export default {
 
 <style scoped>
     .header-holder.tt-logo-center {
-        /*background-image: linear-gradient(to bottom, #fed100, #009b3a  84%);*/
-        /*-pie-background: linear-gradient(to bottom, #fed100, #009b3a  84%);*/
-      background-color: white;
+        background-image: linear-gradient(to bottom, #fed100, #5F206E  84%);
+        -pie-background: linear-gradient(to bottom, #fed100, #5F206E  84%);
+      /*background-color: #5F206E;*/
       border-bottom: 1px solid #29487d;
       opacity: 0.9;
     }
@@ -199,7 +212,7 @@ h3 {
 i {
   /*margin-right: 15px;*/
   font-size: 1.2em;
-  color: black;
+  color: white;
 }
 .right {
   padding-right: 0px;

@@ -3,7 +3,7 @@
     <div class=" ">
 
       <div class="messages">
-        <img :src="imageUrl" alt="" width="100px" height="100px">
+        <img :src="imageUrl" alt="" width="100px" height="100px" v-if="imageUrl">
         <form @submit.prevent="sendMessage">
          <div>
            <div class="uk-grid-small uk-flex-middle uk-child-width-1-3" uk-grid style="">

@@ -2,7 +2,7 @@
   <div class="test" >
 
       <div class="" style="background-color: white">
-          <div style="background-color: #ddd"><h2>Meme Galleries</h2></div>
+          <div style="background-color: #ddd"><h2>Click</h2></div>
           <div v-if="loading"> <loader></loader></div>
           <div v-for="image in images">
               <div class="d-flex">

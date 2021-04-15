@@ -245,7 +245,7 @@ export default {
 
 
 .register{
-  background: -webkit-linear-gradient(left, #009b3a, #fed100);
+  background: -webkit-linear-gradient(left, #5F206E, #fed100);
   margin-top: 3%;
   padding: 3%;
 }

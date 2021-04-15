@@ -15,7 +15,14 @@ import prof from "./components/auth/profile.vue";
 import firebase from "firebase";
 import about from "@/components/pages/about";
 import user from "@/components/User/createProfile";
+
+
+
 import memes from "@/views/UploadImages";
+import question from "@/views/Q&A";
+
+
+
 import gal from "@/components/pages/gallery";
 import main from "./components/frames/bar";
 import testing from "./components/testing";
@@ -138,6 +145,14 @@ const router = new Router({
       name: "Gif",
       component:Gif
     },
+
+
+      {
+      path: "/question",
+      name: "Q&A",
+      component:question
+    },
+
 
     {
       path: "/profile/:id",

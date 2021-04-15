@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="uk-card-media-top">
-                <router-link :to="'/start/' + image.Meme_id"><img :src="image.image" alt=""></router-link>
+                <router-link :to="'/start/' + image.Meme_id"><img :src="image.secondImage" alt=""></router-link>
             </div>
             <div class="uk-card-body">
                 <h3 class=""><b>Title:</b> {{image.title}}</h3>

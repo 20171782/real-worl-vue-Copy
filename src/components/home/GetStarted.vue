@@ -3,19 +3,33 @@
     <navbar></navbar>
      <div v-if="loading"> <loader></loader></div>
     <div class="test uk-section uk-section-muted" >
+
+
+      <h1 class="uk-text-center inner-shadow uk-text-capitalize">{{ gallery[0].title }}</h1>
       <div class="row p-5" v-for="gal in gallery">
         <div class="col">
-          <div>
-            <div class="me"><img :src="gal.image" alt="" /></div>
-            <h3>{{ gal.title }}</h3>
+          <div  class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+            <div>
+              <p class="uk-text-center " style=" font-family: font-serif; font-weight: 200;font-size: 20px;"> {{gal.TitleOne}}</p>
+              <iframe width="642" height="361" :src="'https://www.youtube.com/embed/' +  gallery[0].VideoIdOne"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
 
-<!--  Display like button-->
-            <div style="float: right;padding-right: 15px">
-              <likes :ids="ids"></likes>
             </div>
+            <div>
+              <p class="uk-text-center " style=" font-family: font-serif; font-weight: 200;font-size: 20px;"> {{gal.TitleTwo}}</p>
+              <iframe width="642" height="361" :src="'https://www.youtube.com/embed/' +  gallery[0].VideoIdTwo"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
 
-
+            </div>
           </div>
+
+          <!--  Display like button-->
+          <div style="float: right;padding-right: 15px" class="uk-margin-medium-top">
+            <likes :ids="ids"></likes>
+          </div>
+          <p uk-margin>
+            <button class="uk-button header-holder tt-logo-center"style="background-color: #5F206E;color: white;border-radius:5px"> Connect </button>
+          </p>
+
+
           <hr />
           <div class="">
             <div class="uk-width-auto d-flex">
@@ -40,6 +54,18 @@
             </div>
           </div>
 
+          <ul uk-accordion>
+            <li >
+              <a class="uk-accordion-title" href="#">Description</a>
+              <div class="uk-accordion-content">
+                <p class=""> {{gal.description}}. Web designing full course in urdu step by step ! Lec 85 Html input type url ! Display a url input field</p>
+              </div>
+            </li>
+
+          </ul>
+
+
+          <p class="uk-text-bold">My prediction was {{gal.prediction}}</p>
           <hr />
           <p v-if="comment">
             {{ comments.length }} <span style="font-size: 20px">Comment</span>
@@ -48,14 +74,16 @@
             {{ comments.length }}
             <span style="font-size: 20px;color: blue">Comments</span>
           </p>
-
           <chat :ids="ids" :Counter="Counter"></chat>
         </div>
+
+
         <div class="col-md-4">
           <sidegal :ids="ids"></sidegal>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -78,7 +106,7 @@ export default {
       gallery: [],
       ids: this.$route.params.id,
       comments: [],
-
+      test:'BVuUIdeba_k',
 
       meme_id: null
     };
@@ -117,7 +145,24 @@ export default {
   height: 50px;
 }
 
-  .row{
-
-  }
+.inner-shadow {
+@include text-shadow(
+1px 2px 4px lighten(, 45%),
+0px 0px 0px darken( 100%),
+0px 0px 2px lighten( 80%)
+);
+}
+h1 {
+  font-size: 36px;
+  margin: 16px 0;
+  font-family: $font-serif;
+  font-weight: 900;
+}
+.header-holder.tt-logo-center {
+  background-image: linear-gradient(to bottom, #fed100, #5F206E  84%);
+  -pie-background: linear-gradient(to bottom, #fed100, #5F206E  84%);
+  /*background-color: #5F206E;*/
+  border-bottom: 1px solid #29487d;
+  opacity: 0.9;
+}
 </style>

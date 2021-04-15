@@ -18,7 +18,7 @@
                                         v-if="!test(use.id) && !confirm(use.id)"
                                         @click="addfren(use.id, use.image, use.name, use.alias)"
                                 >
-                                    <i class="fa fa-user-plus"> fren</i>
+                                    <i class="fa fa-user-plus">connect</i>
                                 </button>
 
                                 <div style="margin-bottom: auto;" v-else class="uk-alert-primary" uk-alert>
@@ -197,7 +197,10 @@
     }
     button{
 
-        background-color:  rgba(254, 209, 0, 0.9) ;
-        /*background-color: #e9ebee;*/
+        background-image: linear-gradient(to bottom, #fed100, #5F206E  84%);
+        -pie-background: linear-gradient(to bottom, #fed100, #5F206E  84%);
+        /*background-color: #5F206E;*/
+        border-bottom: 1px solid #29487d;
+        opacity: 0.9;
     }
 </style>

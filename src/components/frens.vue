@@ -17,7 +17,7 @@
         <div class="uk-card-header" v-if="frens.length !=0 || Friends.length !=0">
 
             <!--  For who sends fren request -->
-            <h3 class="uk-text-bold">Your Frens</h3>
+            <h3 class="uk-text-bold">Your Connections</h3>
 
 
 
@@ -27,7 +27,7 @@
 
                 </div>
                     <div>
-                        <router-link :to="'/profile/' + requests.myAlias  "><span class="uk-text-bold" style="color: #009b3a">{{ requests.name}}</span></router-link>
+                        <router-link :to="'/profile/' + requests.myAlias  "><span class="uk-text-bold" style="color: #009b3a">{{ requests.myAlias}}</span></router-link>
                     </div>
                 <div class="" >
                     <button class="btn btn-light" type="button" @click="remove(requests.request_id)" style="color: black">Unfren</button>
@@ -42,7 +42,7 @@
                     <img class="uk-border-circle" width="60" height="30" :src="requests.user_requestedImage">
 
                 </div>
-                <router-link :to="'/profile/' + requests.userRequestedAlias " ><span class="uk-text-bold " style="color: #009b3a;">{{ requests.user_requestedName}}</span></router-link>
+                <router-link :to="'/profile/' + requests.userRequestedAlias " ><span class="uk-text-bold " style="color: #009b3a;">{{ requests.userRequestedAlias}}</span></router-link>
 
                 <div class="" >
                     <button class="btn btn-light" type="button" @click="remove(requests.request_id)" style="color: black;">Unfren</button>

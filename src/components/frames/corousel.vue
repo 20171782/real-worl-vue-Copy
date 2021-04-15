@@ -169,7 +169,16 @@ export default {
   },
 
   created() {
-    this.$store.dispatch("carousel", this.images);
+    // this.$store.dispatch("carousel", this.images);
+    db.collection("Memes")
+            .onSnapshot((snapshot) => {
+              snapshot.docChanges().forEach((change) => {
+                if (change.type === "added") {
+                  this.images.push(change.doc.data());
+                }
+
+              });
+            });
     this.messages;
   }
 };

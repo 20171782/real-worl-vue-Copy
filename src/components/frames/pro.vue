@@ -2,11 +2,12 @@
    <div>
        <div v-for="crab in crabs">
            <div class="">
-               <img
-                       class="uk-border-circle"
-
-                       :src="crab.image"
-               />
+             <router-link :to="'/profile/' + crab.alias">
+                 <img
+                         class="uk-border-circle"
+                         :src="crab.image"
+                 />
+             </router-link>
 <!--               <span> {{ crab.name }}</span>-->
            </div>
 
