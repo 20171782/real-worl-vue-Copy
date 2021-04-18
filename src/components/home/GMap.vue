@@ -27,6 +27,7 @@
                 <div style="">
                   <div class="card ">
                     <cor></cor>
+
                   </div>
                 </div>
               </div>

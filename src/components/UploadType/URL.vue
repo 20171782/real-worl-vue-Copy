@@ -1,9 +1,9 @@
 <template>
     <div class="">
-        <h1>Upload Image</h1>
+        <h1>Video Upload</h1>
         <div class="">
-            <img v-if="imageUrl"   :src="imageUrl" alt="" width="300px" height="300px">
-            <img v-if="SecondImageUrl" :src="SecondImageUrl" alt="" width="300px" height="300px">
+            <img v-if="imageUrl"   :src="imageUrl" alt="" width="200px" height="200px">
+            <img v-if="SecondImageUrl" :src="SecondImageUrl" alt="" width="200px" height="200px">
             <img v-if="thumb" :src="thumb" alt="" width="300px" height="300px">
             <form @submit.prevent="sendMessage" >
                 <div class="top">
@@ -41,36 +41,32 @@
             <p uk-margin>
 
 
-<!--                <button class="uk-button uk-button-primary uk-margin-left" @click="VideoUrl">Video Url</button>-->
+                <button class="uk-button uk-button-primary uk-margin-left" @click="VideoUrl">Video Url</button>
             </p>
 
 
+
+
             <div >
+                <div class="uk-margin ">
+                    <input class="uk-input" type="url" required placeholder="First Video" v-model="FirstVideoUrl">
+                </div>
+                <div class="uk-margin">
+                    <input class="uk-input" type="url" required placeholder="Second Video" v-model="SecondVideoUrl">
+                </div>
                 <div class="js-upload" uk-form-custom>
                     <input type="file" multiple @change="thumbnail">
                     <button class="uk-button uk-button-default" type="button" tabindex="-1">thumbnail</button>
                 </div>
+                <p>
+                    {{VideoIdOne}}
+                </p>
+                <p>
+                    {{VideoIdTwo}}
+                </p>
+                <button  @click="getFirstID" class="uk-button " style="color: white !important;background-color: green">Get ID</button>
 
-                <div class="js-upload" uk-form-custom>
-                    <input type="file" multiple @change="uploadImage">
-                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Image 2</button>
-                </div>
-
-
-
-
-                <input type="file" style="display: none" ref="fileInput" accept="image/*" @change="uploadFile"/>
-<!--                <input type="file"   @change="uploadImage"/>-->
-                <button
-                        raised
-                        style="background: #F44336;"
-                        class="uk-button uk-button-primary uk-button-small"
-                        @click="upload"
-                >upload
-                </button>
             </div>
-
-
 
 
 
@@ -88,7 +84,7 @@
     import firebase from 'firebase'
 
     export default {
-        name: "Image",
+        name: "URL",
         props: ["name"],
         data() {
             return {
@@ -108,10 +104,15 @@
                 images:'upload.svg',
                 SecondImageUrl:'',
                 show:true,
+                FirstVideoUrl:'',
+                SecondVideoUrl:'',
+                VideoIdOne:'',
+                VideoIdTwo:'',
                 prediction:'',
                 TitleOne:'',
                 TitleTwo:'',
                 thumb:''
+
 
 
             };
@@ -134,10 +135,12 @@
                             alias:this.alias,
                             timestamp:Date.now(),
                             counter:0,
-                            thumb:this.thumb,
+                            VideoIdOne:this.VideoIdOne,
+                            VideoIdTwo:this.VideoIdTwo,
                             prediction:this.prediction,
                             TitleOne:this.TitleOne,
-                            TitleTwo:this.TitleTwo
+                            TitleTwo:this.TitleTwo,
+                            thumb:this.thumb
 
                         }).then((data)=>{
                         const key=data.key
@@ -159,12 +162,12 @@
                     this.errors = null;
                     this.imageUrl=null,
                         this.SecondImageUrl=null,
-
+                        this.thumb
                         this.description=null
                     this.title=null
                     this.choose=null
                     this.cat=null
-                    this.thumb=null
+
 
                 } else {
                     this.errors = "You need to enter a message";
@@ -193,8 +196,12 @@
             Reload(){
                 window.location.reload()
             },
-
-
+            Localimage(){
+                this.show = true
+            },
+            VideoUrl(){
+                this.show = false
+            },
             uploadImage(e) {
                 let file = e.target.files[0]
                 console.log(file)

@@ -6,7 +6,7 @@
           <div v-if="loading"> <loader></loader></div>
           <div v-for="image in images">
               <div class="d-flex">
-                  <img :src="image.image" alt="" class="p-1 pointer"  @click="Goto(image.Meme_id)">
+                  <img :src="image.thumb" alt="" class="p-1 pointer"  @click="Goto(image.Meme_id)">
                   <div style="info"> <div class="uk-width-expand">
                       <p style="font-weight: bold" class=" uk-margin-remove-bottom">{{image.title|convert}}</p>
                       <p class="uk-text-meta uk-margin-remove-top">{{image.description}} ... </p>

@@ -104,10 +104,7 @@ export default {
       return this.likes.find(map => map.user_id === this.id);
     },
       dislikenum() {
-
         return this.dislikes.length;
-
-
       },
       UID() {
           return this.dislikes.find(map => map.user_id === this.id);

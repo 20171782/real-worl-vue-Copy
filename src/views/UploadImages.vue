@@ -2,97 +2,148 @@
     <div style="" class="">
         <span style="color: black" class="pointer" href="#modal-full" uk-toggle><img :src=" '/' + images " alt=""><span class="uk-text-bold" style="margin-left: 17px">upload</span></span>
 
+<!--        <a class="uk-button uk-button-default" href="#modal-full" uk-toggle>Open</a>-->
+
         <div id="modal-full" class="uk-modal-full" uk-modal>
             <div class="uk-modal-dialog">
-                <button @click="Reload" class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-                <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+                <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+                <div class="uk-grid-collapse uk-child-width-1-2@s " uk-grid>
                     <div class="uk-background-cover" style="background-image: url('https://cdn.pixabay.com/photo/2018/03/09/10/41/paper-3211179__340.jpg');" uk-height-viewport></div>
                     <div class="uk-padding-large">
-                        <h1>CLICK</h1>
-                        <div class="">
-                            <img v-if="imageUrl"   :src="imageUrl" alt="" width="200px" height="200px">
-                            <img v-if="SecondImageUrl" :src="SecondImageUrl" alt="" width="200px" height="200px">
-                            <form @submit.prevent="sendMessage" >
-                                <div class="top">
-                                    <input type="text" class="uk-input"  placeholder="Question..." v-model="title" />
-                                </div>
-                                <br>
-                                <div class="top">
-                                    <input type="text" class="uk-input"  placeholder="descriptiion..." v-model="description" />
-                                </div>
-                                <div class="top">
-                                    <input type="text" class="uk-input"  placeholder="prediction..." v-model="prediction" />
-                                </div>
+                        <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+                            <li><a href="#">Image</a></li>
+                            <li><a href="#">URL</a></li>
+                            <li><a href="#">Text</a></li>
+                        </ul>
 
-                                <div class="top">
-                                    <input type="text" class="uk-input"  placeholder="TitleOne..." v-model="TitleOne" />
-                                </div>
-                                <div class="top">
-                                    <input type="text" class="uk-input"  placeholder="TitleTwo..." v-model="TitleTwo" />
-                                </div>
-                                <!--          <label>Browser Select</label>-->
-                                <br>
-                                <label for="">Categories</label>
-                                <select class="uk-select" v-model="cat" >
-                                    <option v-for="sta in Cats">{{ sta.name }}</option>
-                                </select>
-                                <br>
-                                <label for="">Acount Pivacy</label>
-                                <select class="uk-select" v-model="choose" >
-                                    <option v-for="cho in Options">{{ cho }}</option>
-                                </select>
-                                <p v-if="errors">{{ errors }}</p>
-
-                            </form>
-
-                            <p uk-margin>
-
-                                <button class="uk-button uk-button-danger" @click="Localimage">Local Image</button>
-                                <button class="uk-button uk-button-primary uk-margin-left" @click="VideoUrl">Video Url</button>
-                            </p>
+                        <ul class="uk-switcher uk-margin">
+                            <li><LocalImage/></li>
+                            <li><URL></URL></li>
+                            <li><Testing></Testing></li>
 
 
-                          <div v-if="show">
-                              <input type="file" style="display: none" ref="fileInput" accept="image/*" @change="uploadFile"/>
-                              <input type="file"   @change="uploadImage"/>
-                              <button
-                                      raised
-                                      style="background: #F44336;"
-                                      class="uk-button uk-button-primary uk-button-small"
-                                      @click="upload"
-                              >upload
-                              </button>
-                          </div>
-
-                            <div v-if="!show">
-                                <div class="uk-margin ">
-                                    <input class="uk-input" type="url" required placeholder="First Video" v-model="FirstVideoUrl">
-                                </div>
-                                <div class="uk-margin">
-                                    <input class="uk-input" type="url" required placeholder="Second Video" v-model="SecondVideoUrl">
-                                </div>
-                                <p>
-                                    {{VideoIdOne}}
-                                </p>
-                                <p>
-                                    {{VideoIdTwo}}
-                                </p>
-                                <button  @click="getFirstID" class="uk-button " style="color: white !important;background-color: green">Get ID</button>
-
-                          </div>
-
-
-
-                            <button
-                                    @click="sendMessage"
-                                    class="uk-button uk-button-secondary uk-button-small"
-                            >Send
-                            </button>
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+
+
+        <!--        <div id="modal-full" class="uk-modal-full" uk-modal>-->
+<!--            <div class="uk-modal-dialog">-->
+<!--                <button @click="Reload" class="uk-modal-close-full uk-close-large" type="button" uk-close></button>-->
+<!--                <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>-->
+<!--                    <div class="uk-background-cover" style="background-image: url('https://cdn.pixabay.com/photo/2018/03/09/10/41/paper-3211179__340.jpg');" uk-height-viewport></div>-->
+
+
+<!--                    <ul class="uk-subnav uk-subnav-pill" uk-switcher>-->
+<!--                        <li><a href="#">Item</a></li>-->
+<!--                        <li><a href="#">Item</a></li>-->
+<!--                        <li><a href="#">Item</a></li>-->
+<!--                    </ul>-->
+<!--                    <ul class="uk-switcher uk-margin">-->
+<!--                        <li>Hello! <a href="#" uk-switcher-item="2">Switch to item 3</a></li>-->
+<!--                        <li>Hello again! <a href="#" uk-switcher-item="next">Next item</a></li>-->
+<!--                        <li>Bazinga! <a href="#" uk-switcher-item="previous">Previous item</a></li>-->
+<!--                    </ul>-->
+
+
+
+                    <!--                    <div class="uk-padding-large">-->
+<!--                        <h1>CLICK</h1>-->
+<!--                        <div class="">-->
+<!--                            <img v-if="imageUrl"   :src="imageUrl" alt="" width="200px" height="200px">-->
+<!--                            <img v-if="SecondImageUrl" :src="SecondImageUrl" alt="" width="200px" height="200px">-->
+<!--                            <form @submit.prevent="sendMessage" >-->
+<!--                                <div class="top">-->
+<!--                                    <input type="text" class="uk-input"  placeholder="Question..." v-model="title" />-->
+<!--                                </div>-->
+<!--                                <br>-->
+<!--                                <div class="top">-->
+<!--                                    <input type="text" class="uk-input"  placeholder="descriptiion..." v-model="description" />-->
+<!--                                </div>-->
+<!--                                <div class="top">-->
+<!--                                    <input type="text" class="uk-input"  placeholder="prediction..." v-model="prediction" />-->
+<!--                                </div>-->
+
+<!--                                <div class="top">-->
+<!--                                    <input type="text" class="uk-input"  placeholder="TitleOne..." v-model="TitleOne" />-->
+<!--                                </div>-->
+<!--                                <div class="top">-->
+<!--                                    <input type="text" class="uk-input"  placeholder="TitleTwo..." v-model="TitleTwo" />-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash;          <label>Browser Select</label>&ndash;&gt;-->
+<!--                                <br>-->
+<!--                                <label for="">Categories</label>-->
+<!--                                <select class="uk-select" v-model="cat" >-->
+<!--                                    <option v-for="sta in Cats">{{ sta.name }}</option>-->
+<!--                                </select>-->
+<!--                                <br>-->
+<!--                                <label for="">Acount Pivacy</label>-->
+<!--                                <select class="uk-select" v-model="choose" >-->
+<!--                                    <option v-for="cho in Options">{{ cho }}</option>-->
+<!--                                </select>-->
+<!--                                <p v-if="errors">{{ errors }}</p>-->
+
+<!--                            </form>-->
+
+<!--                            <p uk-margin>-->
+
+<!--                                <button class="uk-button uk-button-danger" @click="Localimage">Local Image</button>-->
+<!--                                <button class="uk-button uk-button-primary uk-margin-left" @click="VideoUrl">Video Url</button>-->
+<!--                            </p>-->
+
+
+<!--                          <div v-if="show">-->
+<!--                              <input type="file" style="display: none" ref="fileInput" accept="image/*" @change="uploadFile"/>-->
+<!--                              <input type="file"   @change="uploadImage"/>-->
+<!--                              <button-->
+<!--                                      raised-->
+<!--                                      style="background: #F44336;"-->
+<!--                                      class="uk-button uk-button-primary uk-button-small"-->
+<!--                                      @click="upload"-->
+<!--                              >upload-->
+<!--                              </button>-->
+<!--                          </div>-->
+
+<!--                            <div v-if="!show">-->
+<!--                                <div class="uk-margin ">-->
+<!--                                    <input class="uk-input" type="url" required placeholder="First Video" v-model="FirstVideoUrl">-->
+<!--                                </div>-->
+<!--                                <div class="uk-margin">-->
+<!--                                    <input class="uk-input" type="url" required placeholder="Second Video" v-model="SecondVideoUrl">-->
+<!--                                </div>-->
+<!--                                <p>-->
+<!--                                    {{VideoIdOne}}-->
+<!--                                </p>-->
+<!--                                <p>-->
+<!--                                    {{VideoIdTwo}}-->
+<!--                                </p>-->
+<!--                                <button  @click="getFirstID" class="uk-button " style="color: white !important;background-color: green">Get ID</button>-->
+
+<!--                          </div>-->
+
+
+
+<!--                            <button-->
+<!--                                    @click="sendMessage"-->
+<!--                                    class="uk-button uk-button-secondary uk-button-small"-->
+<!--                            >Send-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+
+
+
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
     </div>
 </template>

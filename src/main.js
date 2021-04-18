@@ -31,6 +31,12 @@ import timestamp from "./components/timestamp";
 import update from '@/components/User/UpdateProfile'
 import TermsCondition from '@/components/auth/TermsCondition'
 import  navi from '@/components/MemeGenerator/Navi.vue'
+import  LocalImage from '@/components/UploadType/Image.vue'
+import  URL from '@/components/UploadType/URL.vue'
+
+import  Connect from '@/components/Connect.vue'
+import  Testing from '@/components//UploadType/Testing.vue'
+
 import VueFirestore from 'vue-firestore'
 
 
@@ -84,6 +90,11 @@ Vue.component('Grid',Grid)
 Vue.component('update',update)
 Vue.component('TermsCondition',TermsCondition)
 Vue.component('top', navi)
+Vue.component('LocalImage', LocalImage)
+Vue.component('URL', URL)
+Vue.component('Connect', Connect)
+Vue.component('Testing', Testing)
+
 import Grid from "./components/Grid";
 
 
