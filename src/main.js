@@ -33,9 +33,16 @@ import TermsCondition from '@/components/auth/TermsCondition'
 import  navi from '@/components/MemeGenerator/Navi.vue'
 import  LocalImage from '@/components/UploadType/Image.vue'
 import  URL from '@/components/UploadType/URL.vue'
+import  Video from '@/components/UploadType/Video.vue'
 
 import  Connect from '@/components/Connect.vue'
 import  Testing from '@/components//UploadType/Testing.vue'
+
+
+import  Navigation from '@/components/frames/Navigation.vue'
+import  Post from '@/components/frames/Post.vue'
+import  Connections from '@/components/frames/Connections.vue'
+import  smallProfile from '@/components/frames/smallProfile.vue'
 
 import VueFirestore from 'vue-firestore'
 
@@ -93,7 +100,12 @@ Vue.component('top', navi)
 Vue.component('LocalImage', LocalImage)
 Vue.component('URL', URL)
 Vue.component('Connect', Connect)
+Vue.component('Video', Video)
 Vue.component('Testing', Testing)
+Vue.component('Navigation', Navigation)
+Vue.component('Post', Post)
+Vue.component('Connections', Connections)
+Vue.component('smallProfile', smallProfile)
 
 import Grid from "./components/Grid";
 

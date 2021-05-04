@@ -14,12 +14,14 @@
                             <li><a href="#">Image</a></li>
                             <li><a href="#">URL</a></li>
                             <li><a href="#">Text</a></li>
+                            <li><a href="#">Video</a></li>
                         </ul>
 
                         <ul class="uk-switcher uk-margin">
                             <li><LocalImage/></li>
                             <li><URL></URL></li>
                             <li><Testing></Testing></li>
+                            <li><Video></Video></li>
 
 
                         </ul>

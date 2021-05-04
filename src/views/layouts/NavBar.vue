@@ -1,139 +1,68 @@
 <template>
   <div class=" " style="">
-<div class="">
-  <nav class="uk-navbar-container header-holder tt-logo-center" uk-navbar>
-    <div class="uk-navbar-left uk-container@l">
-
-      <ul class="uk-navbar-nav">
-        <li  > <router-link to="/GMap/Animated"><a ><img  src="https://cdn.pixabay.com/photo/2012/04/26/19/07/crab-42880__340.png" width="70" height="70" alt=""/></a></router-link></li>
-<!--        <li ><hr class="uk-divider-vertical" ></li>-->
-<!--        <li><a href=""><h1>Meme Galleries</h1></a></li>-->
-        <li class="uk-visible@l">
-
-          <a href=""><div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
-          </div><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></a>
-        </li>
-
-      </ul>
-
-    </div>
-    <div class="uk-navbar-right uk-visible@l">
-      <ul class="uk-navbar-nav">
-        <li v-if="user">
-          <router-link to="/about"
-          ><i class="fas fa-grin-alt">about us</i></router-link
-          >
-        </li>
-
-        <li v-if="!user">
-          <router-link to="/signup"
-          ><i class="fa fa-sign-out">Signup</i></router-link
-          >
-        </li>
-        <li v-if="!user">
-          <router-link :to="{ name: 'login' }"
-          ><i class=" fa fa-unlock">Login</i></router-link
-          >
-        </li>
-        <li v-if="user">
-          <a href=""> <i class="fa fa-shopping-cart">cart</i></a>
-        </li>
-        <li v-if="user">
-          <a href=""
-          ><i class="fa fa-user">{{ user.email }}</i></a
-          >
-        </li>
 
 
-        <li v-if="user">
-          <a href="" @click="logout"><i class="fa fa-sign-out">logout</i></a>
-        </li>
+    <nav class="navbar fixed-top navbar-expand-md custom-navbar navbar-dark">
+     <img class="navbar-brand" src="https://cdn.pixabay.com/photo/2012/04/26/19/07/crab-42880__340.png" id="logo_custom" width="10%"  alt="logo">
+      <button class="navbar-toggler navbar-toggler-right custom-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon "></span>
+      </button>
+      <div class="collapse navbar-collapse " id="collapsibleNavbar">
+        <ul class="navbar-nav m-auto " >
 
-        <li v-if="user">
-          <a href="" ><pro></pro></a>
-        </li>
-      </ul>
-    </div>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><notification></notification> </a>
+          </li>
+
+
+            <li class="nav-item">
+            <a class="nav-link" href="#"><requests></requests></a>
+          </li>
+
+
+            <li class="nav-item">
+            <a class="nav-link" href="#">
+                <img src="@/assets/friend.png" alt="" height="26.25px" width="26.25px" />
+            </a>
+          </li>
+ <li class="nav-item" style="margin-left: 70px">
+            <a class="nav-link" href="#">
+                <img  src="https://i.ibb.co/b2zRPbZ/email.png" alt="" height="26.25px" width="26.25px" />
+            </a>
+          </li>
+
+            <li class="nav-item" style="margin-left: 70px">
+            <a class="nav-link" href="#">
+                <img  src="https://i.ibb.co/znTXjv6/perfil.png" alt="" height="26.25px" width="26.25px" />
+            </a>
+          </li>
 
 
 
 
 
 
+<!--          <li v-if="user" class="nav-item">-->
+<!--            <a   @click="logout" class="nav-link" href="#"><b class="glyphicon glyphicon-log-out"></b> Logout </a>-->
+<!--          </li>-->
+
+<!--          <li v-if="!user" class="nav-item">-->
+<!--            <router-link :to="{ name: 'login' }"  class="nav-link" href="#"><b class="glyphicon glyphicon-log-in"></b> login </router-link>-->
+<!--          </li>-->
+
+<!--          <li v-if="!user" class="nav-item">-->
+<!--            <router-link to="/signup"  class="nav-link" href="#"><b class="glyphicon glyphicon-log-in"></b> Signup </router-link>-->
+<!--          </li>-->
 
 
 
-
-
-
-
-
-    <div class="uk-navbar-right uk-hidden@l uk-text-justify">
-      <div style="" class="uk-navbar-right" >
-        <ul class="uk-navbar-nav"  >
-          <li><a href="#offcanvas-slide" uk-toggle ><span uk-icon="menu" style="width:30px;color: #FF2500;"></span></a></li>
         </ul>
+        <form class="form-inline ml-auto">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn  my-2 my-sm-0" style="border: 1px solid #800080;color:#800080" type="submit">Search</button>
+        </form>
       </div>
-
-
-      <div id="offcanvas-slide" uk-offcanvas>
-
-        <div class="uk-offcanvas-bar">
-
-          <a href="http://www.ncu.edu.jm" class="uk-button-link uk-text-center uk-align-center ">
-            <img src="https://cdn.pixabay.com/photo/2012/04/26/19/07/crab-42880__340.png"  alt=""  style="width:100px;padding-top:50px">
-          </a>
-
-          <div class="uk-width-1-1@s small">
-            <ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: false">
-              <li v-if="user">
-                <a href="" ><pro></pro></a>
-              </li>
-              <li v-if="user">
-                <router-link to="/about"
-                ><i class="fas fa-grin-alt"><span>about us</span></i></router-link
-                >
-              </li>
-
-              <li v-if="!user">
-                <router-link to="/signup"
-                ><i class="fa fa-sign-out"><span>Signup</span></i></router-link
-                >
-              </li>
-
-              <li v-if="!user">
-                <router-link :to="{ name: 'login' }"
-                ><i class=" fa fa-unlock"><span>Login</span></i></router-link
-                >
-              </li>
-
-              <li v-if="user">
-                <a href=""> <i class="fa fa-shopping-cart"><span>cart</span></i></a>
-              </li>
-              <li v-if="user">
-                <a href=""
-                ><i class="fa fa-user"><span>{{ user.email }}</span></i></a
-                >
-              </li>
-              <li v-if="user">
-                <a href="" @click="logout"><i class="fa fa-sign-out"><span>logout</span></i></a>
-              </li>
-
-
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-
-    </div>
-
-  </nav>
-</div>
-
-
+    </nav>
   </div>
 </template>
 
@@ -190,41 +119,65 @@ export default {
 </script>
 
 <style scoped>
-    .header-holder.tt-logo-center {
-        background-image: linear-gradient(to bottom, #fed100, #5F206E  84%);
-        -pie-background: linear-gradient(to bottom, #fed100, #5F206E  84%);
-      /*background-color: #5F206E;*/
-      border-bottom: 1px solid #29487d;
-      opacity: 0.9;
+    nav{
+        border-bottom:  0.5px solid #e6ecf0;
     }
-.test {
-  margin-top: 0px;
-  background-color: #0a2b4e;
-  border-bottom: 1px solid orangered;
-}
-.me {
-  background: #0a2b4e;
-}
-h3 {
-  padding-left: 500px;
-  color: white;
-}
-i {
-  /*margin-right: 15px;*/
-  font-size: 1.2em;
-  color: white;
-}
-.right {
-  padding-right: 0px;
-}
-nav {
-  width: 100%;
-}
-  h1{font-size:2.2em}
-  .small i{
-    color:green;
-  }
-    .small span{
-    padding-left: 10px;
-  }
+  .custom-navbar{background-color: #fff;}
+  .nav-link{color: darkgray!important;}
+  .custom-toggler.navbar-toggler {border-color: rgb(247,32,78);}
+  .custom-toggler .navbar-toggler-icon {background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(247,32,78, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");}
+  .custom-toggler .navbar-toggler-icon{width: 18px!important;}
+  .custom-toggler:hover{border-color: rgb(255,255,255);}
+  .navbar-toggler-icon:hover{background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");}#logo_custom{margin-top: -6px;}
+  @media only screen and (max-width: 760px) { #logo_custom{width: 40%;}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*    .header-holder.tt-logo-center {*/
+/*        background-image: linear-gradient(to bottom, #fed100, #5F206E  84%);*/
+/*        -pie-background: linear-gradient(to bottom, #fed100, #5F206E  84%);*/
+/*      !*background-color: #5F206E;*!*/
+/*      border-bottom: 1px solid #29487d;*/
+/*      opacity: 0.9;*/
+/*    }*/
+/*.test {*/
+/*  margin-top: 0px;*/
+/*  background-color: #0a2b4e;*/
+/*  border-bottom: 1px solid orangered;*/
+/*}*/
+/*.me {*/
+/*  background: #0a2b4e;*/
+/*}*/
+/*h3 {*/
+/*  padding-left: 500px;*/
+/*  color: white;*/
+/*}*/
+/*i {*/
+/*  !*margin-right: 15px;*!*/
+/*  font-size: 1.2em;*/
+/*  color: white;*/
+/*}*/
+/*.right {*/
+/*  padding-right: 0px;*/
+/*}*/
+/*nav {*/
+/*  width: 100%;*/
+/*}*/
+/*  h1{font-size:2.2em}*/
+/*  .small i{*/
+/*    color:green;*/
+/*  }*/
+/*    .small span{*/
+/*    padding-left: 10px;*/
+/*  }*/
 </style>

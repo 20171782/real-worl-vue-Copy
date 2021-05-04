@@ -1,47 +1,53 @@
 <template>
-    <div class="test" >
-<div v-for="image in images" >
     <div>
-        <div class="card">
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-auto">
-                        <img class="uk-border-circle" width="40" height="40" :src="image.Photo">
-                    </div>
-                    <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">{{image.name}}</h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><time >Published: {{image.timestamp|formatDate}}</time></p>
+        <div class="uk-container">
+            <div class="content"> <!-- Card Grids Conteiner -->
+                <!-- Card Grid -->
+                <div class="card-panel" >
+
+                    <div class="card-panel-content row no-gutters">
+                        <!-- Card Container -->
+                        <div class="col-md-4 card-container padding-right-10 " v-for="image in images">
+                            <!-- Card -->
+                            <router-link :to="'/start/' + image.Meme_id"
+                            ><div class="card">
+                                <img :src="image.thumb" alt="">
+                                <div class="card-subheading">
+                                    Based on your interests
+                                </div>
+                                <div class="heading">
+                                    {{ image.title }}
+                                </div>
+                                <div class="article-info">
+                                    <div class="article-info-left">
+                                        <div class="">
+                                            <a class="profile-avatar">
+                                                <img :src="image.Photo" class="avatar-image" alt="Go to the profile of Jeff Goins">
+                                            </a>
+                                        </div>
+                                        <div class="article-info-center">
+                                            <div class="username">{{image.alias}}</div>
+                                            <div><span class="date">{{image.timestamp|formatDate}}</span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="article-info-right">
+                                        <i class="fa fa-bookmark-o bookmark-link" aria-hidden="true"></i><i class="fa fa-angle-down more-options-link" aria-hidden="true"></i>
+
+                                    </div>
+                                </div></div></router-link>
+                            </div><!-- END Card -->
+                        </div><!-- END Card Container -->
+                        <!-- Card Container -->
                     </div>
                 </div>
             </div>
-            <div class="uk-card-media-top">
-                <router-link :to="'/start/' + image.Meme_id"><img :src="image.secondImage" alt=""></router-link>
-            </div>
-            <div class="uk-card-body">
-                <h3 class=""><b>Title:</b> {{image.title}}</h3>
-                <p><b>Description:</b> {{image.description}}</p>
-                <p><b>Category:</b> {{image.category}}</p>
-                <p><b>Published:</b> {{image.timestamp|formatDate}}</p>
-                <p><b>Comments:</b> {{image.counter}}</p>
-
-<!--                <span href="#"-->
-<!--                ><i class="fa fa-thumbs-up" style="font-size:24px">{{image.likes}}</i-->
-<!--                >-->
-<!--                </span>-->
-
-<!--                <span href="#" style=" margin-left: 10px;"-->
-<!--                ><i class="fa fa-thumbs-down" style="font-size:24px">{{image.dislikes}}</i-->
-<!--                ></span>-->
 
 
-
-            </div>
         </div>
-    </div>
 
-</div>
 
-    </div>
+
 </template>
 
 <script>
@@ -84,37 +90,112 @@
 </script>
 
 <style scoped>
-    .uk-width-auto img{
+    /* NAVBAR */
+
+    /* CONTENT */
+    .content {
+        padding: 0px 0 0 0;
+    }
+
+    .card-panel {
+        display: inline-block;
+        margin: 30px 0 40px 0;
+        width: 100%;
+    }
+
+    .padding-right-10 {
+        padding-right:10px!important;
+    }
+
+
+    .card-container {
+        margin-bottom: 20px;
+    }
+
+    .card {
+        display: inline-block;
+        padding:20px;
+    }
+
+    .img{
+        display: block;
+        margin: -20px -20px 0 -20px;
+        /*background-image: url(https://cdn-images-1.medium.com/max/400/1*rJo10rUQ8WCmCsgTJP5uPg.jpeg);*/
+        background-position: 50% 50%;
+        background-size: cover;
+        height: 100px;
+    }
+
+
+    .card-subheading {
+        color: rgba(0,0,0,.44);
+        font-size: 12px!important;
+        padding-top: 15px;
+        padding-bottom: 5px;
+    }
+
+    .heading {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.2 !important;
+        max-height: 2.4em !important;
+        min-height: 70px;
+    }
+
+    .article-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-basis: auto;
+    }
+
+    .article-info-left {
+        display: flex;
+    }
+
+    .profile-avatar {
+        display: block;
+        padding-right: 10px;
+    }
+
+    .avatar-image {
         width: 40px;
-        width: 40px;height: 40px;
-    }
-    .test {
-        /*margin-top: 25px;*/
-        /*max-width: 300px;*/
-        margin-left: 100px;
-
-
-
-
-
-
-
-    }
- .uk-card-media-top   img{
-
-        max-width: 100%;
-
-        max-height: 70%;
-        width:500px;
-        height: 300px;
-        padding: 15px;
+        height: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 100%;
     }
 
-.card{
-    width: 500px;
-}
-.uk-card-body h3{
-    font-size: 1.4rem;
-}
+    .username {
+        color: rgba(0,0,0,.8);
+        font-size: 12px;
+    }
+
+    .date, .read-time {
+        color: rgba(0,0,0,.44)!important;
+        font-size: 12px;
+    }
+
+    .bookmark-link {
+        color: rgba(0,0,0,.44);
+        display: inline-block;
+        font-size: 19px;
+        height: 24px;
+        vertical-align: sub;
+    }
+
+    .more-options-link {
+        color: rgba(0,0,0,.44);
+        display: inline-block;
+        font-size: 19px;
+        height: 24px;
+        margin-left: 6px;
+        vertical-align: middle;
+    }
+    /* END: CONTENT */
+
+
+
+
 
 </style>

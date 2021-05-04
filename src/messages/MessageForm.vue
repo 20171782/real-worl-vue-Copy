@@ -8,7 +8,7 @@
          <div>
            <div class="uk-grid-small uk-flex-middle uk-child-width-1-3" uk-grid style="">
              <div class="uk-width-auto ">
-               <img width="40" height="40" class="uk-border-circle" src="@/assets/avatar.svg">
+              <pro></pro>
              </div>
 
                <form style="margin-top: 50px">

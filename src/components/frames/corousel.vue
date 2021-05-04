@@ -13,7 +13,7 @@
       <ul class="uk-slideshow-items">
         <li v-for="image in images" :key="image.timestamp">
           <router-link :to="'/start/' + image.Meme_id"
-            ><img :src="image.image"
+            ><img :src="image.thumb"
           /></router-link>
           <div
             style="opacity: 0.9"
@@ -169,16 +169,71 @@ export default {
   },
 
   created() {
-    // this.$store.dispatch("carousel", this.images);
-    db.collection("Memes")
-            .onSnapshot((snapshot) => {
-              snapshot.docChanges().forEach((change) => {
-                if (change.type === "added") {
-                  this.images.push(change.doc.data());
-                }
 
-              });
-            });
+      let me =this.$route.params.id;
+      var id = firebase.auth().currentUser.uid;
+      if(me=='Recent'){
+        db.collection("Memes").orderBy('timestamp','desc').limit(10)
+                .onSnapshot(querySnapshot => {
+                  querySnapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+
+                      this.images = change.doc.data();
+                    }
+                  });
+
+                });
+      } else if(me=='myMemes'){
+        db.collection("Memes").where('user_id','==',id)
+                .onSnapshot(querySnapshot => {
+                  querySnapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                      this.images = change.doc.data();
+                    }
+                  });
+
+                });
+      } else if(me=='mostComments'){
+        const TwoMonths = 1000 * 60 * 60 * 24 * 60
+        var startTime= Date.now() - TwoMonths;
+        const endTime = Date.now()
+        db.collection('Memes').orderBy('counter','desc').startAt(startTime).limit(10)
+                .onSnapshot(querySnapshot => {
+                  querySnapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                      this.images = change.doc.data();
+                    }
+                  });
+
+                });
+      } else if(me=='mostLikes'){
+        const TwoMonths = 1000 * 60 * 60 * 24 * 60
+        var startTime= Date.now() - TwoMonths;
+        const endTime = Date.now()
+        db.collection('Memes').orderBy('likes','desc').startAt(startTime).limit(10)
+                .onSnapshot(querySnapshot => {
+                  querySnapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                      this.images = change.doc.data();
+                    }
+                  });
+
+                });
+      } else {
+        db.collection("Memes").where('category', '==', me).orderBy('timestamp', 'desc')
+                .onSnapshot(querySnapshot => {
+                  querySnapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+
+                      this.images = change.doc.data();
+                    }
+                  });
+
+                });
+      }
+
+
+
     this.messages;
   }
 };

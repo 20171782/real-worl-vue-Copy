@@ -33,6 +33,9 @@ import Grid from "./components/Grid";
 import MyProfile from '@/views/layouts/banner'
 import memeGenerator from '@/components/testing'
 import Generator from './components/MemeGenerator/MemeGenerator'
+import Connect from '@/components/Connect'
+
+import  smallProfile from '@/components/frames/smallProfile.vue'
 
 Vue.use(Router);
 
@@ -50,6 +53,11 @@ const router = new Router({
       }
     },
     {
+      path: "/smallProfile",
+      name: "smallProfile",
+      component: smallProfile
+    },
+    {
       path: "/Generator",
       name: "Generator",
       component: Generator
@@ -59,6 +67,12 @@ const router = new Router({
       path: "/signup",
       name: "signup",
       component: Singup
+    },
+
+    {
+      path: "/Connect",
+      name: "Connect",
+      component: Connect
     },
 
     {

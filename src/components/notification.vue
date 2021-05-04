@@ -1,24 +1,36 @@
 <template>
-  <div>
-      <div class="">
-          <span class="" ><img :src=" '/' + images " alt=""><span style="position:relative;top:-15px;left:-10px;margin-top: 5px;background-color: #009b3a" class="uk-badge">{{Friends.length}}</span><span class="uk-text-bold" style="">Alerts</span></span>
-          <div uk-dropdown="mode: click" v-if="Friends.length != 0">
-              <div v-for="requests in Friends" class="uk-flex "  style="width: 450px">
-                 <div>
-                     <img
-                             class="uk-border-circle"
-                             width="40"
-                             height="40"
-                             :src="requests.user_requestedImage"
-                     />
-                 </div>
-                  <span style="color: #00c7ff;font-weight: bold" @click="checked(requests.request_id)">{{ requests.user_requestedName }}</span><span>{{msg}}</span><span style="color: red" @click="checked(requests.request_id)"><span class="uk-margin-small-right" uk-icon="check"></span></span>
-              </div>
-              <div></div>
+    <div class="grid-sidebar">
+        <div class="icon-sidebar-align">
+            <img
+                    src="@/assets/globe.png"
+                    alt=""
+                    height="96.25px"
+                    width="96.25px"
+            /><span style="position:relative;top:-15px;left:-10px;margin-top: 5px;background-color: #800080" class="uk-badge">{{Friends.length}}</span>
+        </div>
 
-          </div>
-      </div>
-  </div>
+
+
+        <div uk-dropdown="mode: click" v-if="Friends.length != 0" style="width: 400px;border-radius: 20px">
+
+
+            <div v-for="requests in Friends" class="grid-share">
+                <div>
+                    <img   :src="requests.user_requestedImage" alt="" class="img-share"/>
+                </div>
+                <div>
+                    <router-link :to="'/profile/' + requests.myAlias  "> <p><strong>{{ requests.myAlias}}</strong></p>
+                        <p class="username">{{msg}}</p></router-link>
+                </div>
+                <div>
+                    <button  @click="checked(requests.request_id)" class="button-signup fondo-color-signup">
+                        <strong>accept</strong>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
 
@@ -72,20 +84,166 @@ export default {
 </script>
 
 <style scoped>
-img {
-  width: 30px;
-  height: 30px;
-}
-.uk-flex {
-  margin-top: 15px;
-}
-/*span {*/
-/*  margin-left: 5px;*/
-/*}*/
-.uk-offcanvas-bar {
-  background-color: #0a2b4e;
-}
-button {
-  margin-left: 7px;
-}
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+    }
+
+
+
+    .wrapper-left .sidebar-left {
+        position: fixed;
+        width: 276px;
+        height: 100%;
+        background-color: #ffffff;
+        font-size: 19px;
+        border-right: 0.5px solid #e6ecf0;
+        margin-left: 40px;
+    }
+    .grid-sidebar {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        margin-bottom: 20px;
+    }
+    .grid-sidebar:hover {
+        color: #1da1f2;
+        cursor: pointer;
+    }
+    .icon-sidebar-align {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .username {
+        margin-top: 3px;
+        font-size: 15px;
+        color: #8c9aa5;
+    }
+
+
+
+    .input-group-login > .custom-select:not(:first-child),
+    .input-group-login > .form-control-login:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .input-group-login > .custom-file,
+    .input-group > .custom-select,
+    .input-group-login > .form-control-login {
+        position: relative;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+        margin-bottom: 0;
+    }
+
+    button,
+    input {
+        overflow: visible;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+    }
+
+
+    .wrapper-left .sidebar-left {
+        position: fixed;
+        width: 276px;
+        height: 100%;
+        background-color: #ffffff;
+        font-size: 19px;
+        border-right: 0.5px solid #e6ecf0;
+        margin-left: 40px;
+    }
+    .grid-sidebar {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        margin-bottom: 20px;
+    }
+    .grid-sidebar:hover {
+        color: #1da1f2;
+        cursor: pointer;
+    }
+    .icon-sidebar-align {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .input-group-login > .custom-select:not(:first-child),
+    .input-group-login > .form-control-login:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .input-group-login > .custom-file,
+    .input-group > .custom-select,
+    .input-group-login > .form-control-login {
+        position: relative;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+        margin-bottom: 0;
+    }
+
+    button,
+    input {
+        overflow: visible;
+    }
+
+
+    .grid-share{
+        padding: 10px;
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 18% 60% auto;
+        transition: 0.5s;
+    }
+
+    .grid-share:hover{
+        transition: 0.5s;
+        background-color: #E6ECF0;
+    }
+
+
+    .img-share{
+        height: 49px;
+        width: 49px;
+        border-radius: 50px;
+    }
+
+    /* BUTTON SIGNUP */
+    .button-signup {
+        display: inline-block;
+        font-weight: 400;
+        color: #1DA1F2;
+        height: auto;
+        width: 78px;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid transparent;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        /* BORDER RADIUS */
+        border-radius: 28px 28px 28px 28px;
+        -moz-border-radius: 28px 28px 28px 28px;
+        -webkit-border-radius: 28px 28px 28px 28px;
+        border: 1px solid #1DA1F2;
+        cursor: pointer;
+        background-color: transparent;
+    }
 </style>
