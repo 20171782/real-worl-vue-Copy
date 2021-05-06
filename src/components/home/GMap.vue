@@ -10,6 +10,7 @@
           <Navigation></Navigation>
           <div class="grid-posts">
             <Post></Post>
+<!--            <cor></cor>-->
             <Connections></Connections>
           </div>
         </div>

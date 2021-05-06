@@ -6,10 +6,13 @@
     <body>
     <section id="blog-section " style="margin-top: 90px">
       <div class="container">
+          <h1 class="uk-text-center inner-shadow uk-text-capitalize">{{ gallery[0].title }}</h1>
         <div class="row">
 
-          <h1 class="uk-text-center inner-shadow uk-text-capitalize">{{ gallery[0].title }}</h1>
-          <div class="col-lg-8" v-for="gal in gallery">
+            <div class="col-lg-8" v-for="gal in gallery">
+
+
+              <!-- Video URl  -->
             <div class="row" v-if="gallery[0].VideoIdOne  && gallery[0].VideoIdTwo " >
 
               <div class="col-lg-6 col-md-6">
@@ -58,6 +61,192 @@
                 </aside>
               </div>
             </div>
+
+
+
+
+                    <!--Local Image  -->
+            <div class="row" v-if="gallery[0].image  && gallery[0].secondImage " >
+
+              <div class="col-lg-6 col-md-6">
+                <aside>
+                    <img :src="gallery[0].image" alt="">
+
+                  <div class="content-footer">
+                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                    <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
+                    <span class="pull-right">
+
+				<a v-if="ID" @click="pickfirst" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                  {{ PickedNum }}
+                    <i style="color: yellow"  class="fa fa-heart"></i>
+                  <span  v-if="PickedNum"> You chose {{gallery[0].TitleOne}}</span>
+                </a>
+                      <a v-else @click="pickfirst(gal.image,gal.Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                        <i  class="fa fa-heart"></i>
+                        <span v-if="PickedNum">{{ PickedNum }}</span>
+                      </a>
+				</span>
+                  </div>
+                </aside>
+              </div>
+
+              <div class="col-lg-6 col-md-6">
+                <aside>
+                    <img :src="gallery[0].secondImage" alt="">
+
+                  <div class="content-footer">
+                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                    <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
+                    <span class="pull-right">
+
+				       <a  v-if="UID"  @click="pick2" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                  {{ Picked2likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
+                  <span  v-if="Picked2likenum"> You chose {{gallery[0].TitleTwo}}</span>
+                </a>
+                      <a v-else @click="pick2" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                        <i  class="fa fa-heart"></i>
+                        <span v-if="Picked2likenum">{{ Picked2likenum }}</span>
+                      </a>
+				</span>
+
+                  </div>
+                </aside>
+              </div>
+            </div>
+
+
+
+                    <!--Text   -->
+            <div class="row"  v-if="gallery[0].ItemOne  && gallery[0].ItemTwo " >
+
+              <div class="col-lg-6 col-md-6">
+                <aside>
+                    <img :src="gallery[0].ItemOne" alt="">
+
+                  <div class="content-footer">
+                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                    <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
+                    <span class="pull-right">
+
+				<a v-if="ID"@click="pickfirst(gal.ItemOne,gal.Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                  {{ PickedNum }}
+                    <i style="color: yellow"  class="fa fa-heart"></i>
+                  <span  v-if="PickedNum"> You chose {{gallery[0].TitleOne}}</span>
+                </a>
+                      <a v-else @click="pickfirst(gal.ItemOne,gal.Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                        <i  class="fa fa-heart"></i>
+                        <span v-if="PickedNum">{{ PickedNum }}</span>
+                      </a>
+				</span>
+                  </div>
+                </aside>
+              </div>
+
+              <div class="col-lg-6 col-md-6">
+                <aside>
+                    <img :src="gallery[0].ItemTwo" alt="">
+
+                  <div class="content-footer">
+                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                    <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
+                    <span class="pull-right">
+
+				       <a  v-if="UID"  @click="pick2" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                  {{ Picked2likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
+                  <span  v-if="Picked2likenum"> You chose {{gallery[0].TitleTwo}}</span>
+                </a>
+                      <a v-else @click="pick2" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                        <i  class="fa fa-heart"></i>
+                        <span v-if="Picked2likenum">{{ Picked2likenum }}</span>
+                      </a>
+				</span>
+
+                  </div>
+                </aside>
+              </div>
+            </div>
+
+
+                    <!--video   -->
+            <div class="row"  v-if="gallery[0].VideoOne  && gal.VideoTwo " >
+
+              <div class="col-lg-6 col-md-6">
+                <aside>
+                    <video :src="gal.VideoOne" loop muted playsinline  controls  uk-video="autoplay: inview"></video>
+
+                  <div class="content-footer">
+                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                    <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
+                    <span class="pull-right">
+
+				<a v-if="ID"  @click="pickfirst(gallery[0].VideoOne,gallery[0].Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                  {{ PickedNum }}
+                    <i style="color: yellow"  class="fa fa-heart"></i>
+                  <span  v-if="PickedNum"> You chose {{gallery[0].TitleOne}}</span>
+                </a>
+                      <a v-else @click="pickfirst(gallery[0].VideoOne,gallery[0].Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                        <i  class="fa fa-heart"></i>
+                        <span v-if="PickedNum">{{ PickedNum }}</span>
+                      </a>
+				</span>
+                  </div>
+                </aside>
+              </div>
+
+              <div class="col-lg-6 col-md-6">
+                <aside>
+                    <video :src="gal.VideoTwo"  loop muted playsinline  controls  uk-video="autoplay: inview"></video>
+
+                  <div class="content-footer">
+                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                    <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
+                    <span class="pull-right">
+
+				       <a  v-if="UID"  @click="pick2(gallery[0].VideoTwo,gallery[0].Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                  {{ Picked2likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
+                  <span  v-if="Picked2likenum"> You chose {{gallery[0].TitleTwo}}</span>
+                </a>
+                      <a v-else @click="pick2(gallery[0].VideoTwo,gallery[0].Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                        <i  class="fa fa-heart"></i>
+                        <span v-if="Picked2likenum">{{ Picked2likenum }}</span>
+                      </a>
+				</span>
+
+                  </div>
+                </aside>
+              </div>
+            </div>
+
+
+                https://www.tiktok.com/@_ehiz/video/6954548929421708549?lang=en&is_copy_url=0&is_from_webapp=v1&sender_device=pc&sender_web_id=6958928922981893638
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             <!-- Like Button -->
@@ -249,7 +438,10 @@
 </script>
 
 <style scoped>
-
+    video {
+         width: 600px;
+        max-height: 200px;
+    }
   h1 {
     font-size: 36px;
     margin: 16px 0;
@@ -298,18 +490,7 @@
     border: 2px solid #fff;
   }
 
-  .user-ditels {
-    width: 300px;
-    top: -100px;
-    height: 100px;
-    padding-bottom: 99px;
-    position: absolute;
-    border: solid 2px #fff;
-    background-color: #34495E;
-    right: 25px;
-    display: none;
-    z-index: 1;
-  }
+
 
   @media (max-width:768px){
     .user-ditels {
@@ -340,12 +521,7 @@
     padding-right: 20px;
     padding-top: 5px;
     text-align: right;}
-  .social-icon {
-    background-color: #fff;
-    margin-top: 10px;
-    padding-right: 20px;
-    text-align: right;
-  }
+
   .social-icon>a{font-size:20px;text-decoration:none;padding: 5px;}
   .social-icon a:nth-of-type(1){color:#4E71A8;}
   .social-icon a:nth-of-type(2){color:#3FA1DA;}
@@ -354,31 +530,9 @@
   .social-icon a:nth-of-type(5){color:#3A3A3A;}
 
 
-  /*recent-post-col////////////////////*/
-  .widget-sidebar {
-    background-color: #fff;
-    padding: 20px;
-    margin-top: 30px;
-  }
 
-  .title-widget-sidebar {
-    font-size: 14pt;
-    border-bottom: 2px solid #e5ebef;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    margin-top: 0px;
-  }
 
-  .title-widget-sidebar:after {
-    border-bottom: 2px solid #f1c40f;
-    width: 150px;
-    display: block;
-    position: absolute;
-    content: '';
-    padding-bottom: 10px;
-  }
 
-  .recent-post{width: 100%;height: 80px;list-style-type: none;}
   .post-img img {
     width: 100px;
     height: 70px;
@@ -425,50 +579,6 @@
     content: "\2212";
   }
 
-  .panel {
-    padding: 0 18px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  }
-
-
-  /*categories//////////////////////*/
-
-  .categories-btn{
-    background-color: #F39C12;
-    margin-top:30px;
-    color: #fff;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-
-  }
-  .categories-btn:after {
-    content: '\25BA';
-    color: #fff;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
-  }
-  .categories-btn:hover {
-    background-color: #16A085;color: #fff;
-  }
-
-  .form-control{border-radius: 0px;}
-
-  .btn-warning {
-    border-radius: 0px;
-    background-color: #F39C12;
-    margin-top: 15px;
-  }
-  .input-group-addon{border-radius: 0px;}
 
 
 

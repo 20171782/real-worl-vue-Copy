@@ -3,7 +3,7 @@
 
 
     <nav class="navbar fixed-top navbar-expand-md custom-navbar navbar-dark">
-     <img class="navbar-brand" src="https://cdn.pixabay.com/photo/2012/04/26/19/07/crab-42880__340.png" id="logo_custom" width="10%"  alt="logo">
+     <img class="navbar-brand" src="/crabs.png" id="logo_custom" width="12%"  alt="logo">
       <button class="navbar-toggler navbar-toggler-right custom-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon "></span>
       </button>

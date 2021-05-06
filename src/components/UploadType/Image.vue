@@ -111,7 +111,8 @@
                 prediction:'',
                 TitleOne:'',
                 TitleTwo:'',
-                thumb:''
+                thumb:'',
+                likecount:0
 
 
             };
@@ -137,7 +138,8 @@
                             thumb:this.thumb,
                             prediction:this.prediction,
                             TitleOne:this.TitleOne,
-                            TitleTwo:this.TitleTwo
+                            TitleTwo:this.TitleTwo,
+                            likecount:this.likecount
 
                         }).then((data)=>{
                         const key=data.key

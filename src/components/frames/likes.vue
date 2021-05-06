@@ -53,7 +53,11 @@ export default {
     like() {
       var user = firebase.auth().currentUser;
         if(this.ID){
-            db.collection('likes').doc(this.ids + this.id).delete()
+            db.collection('likes').doc(this.ids + this.id).delete().then(()=>{
+              db.collection('Memes').doc(this.ids).update({
+                likes:this.likenum
+              })
+            })
         }else{
             db.collection("likes")
                 .doc(this.ids + this.id )
@@ -63,7 +67,6 @@ export default {
                     Meme_id: this.ids
                 });
             db.collection('dislikes').doc(this.ids + this.id).delete().then(()=>{
-            }).then(()=>{
                 db.collection('Memes').doc(this.ids).update({
                     likes:this.likenum
                 })
@@ -74,7 +77,11 @@ export default {
     unlike() {
         var user = firebase.auth().currentUser;
         if(this.UID){
-            db.collection('dislikes').doc(this.ids + this.id).delete()
+            db.collection('dislikes').doc(this.ids + this.id).delete().then(()=>{
+              db.collection('Memes').doc(this.ids).update({
+                dislikes:this.dislikenum
+              })
+            })
         }else{
             db.collection("dislikes")
                 .doc(this.ids + this.id)

@@ -104,71 +104,71 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import firebase from "firebase";
-import db from "@/firebase/init";
+  import { mapGetters } from "vuex";
+  import firebase from "firebase";
+  import db from "@/firebase/init";
 
-export default {
-  name: "corousel",
-  data() {
-    return {
-      images: [],
-      cat: "",
-      user: firebase.auth().currentUser.uid,
-      chosen: this.$route.params.id,
-      comments: [],
-      likes:[],
-      dislikes: [],
-      id: firebase.auth().currentUser.uid,
-    };
-  },
-  computed: {
-    ...mapGetters(["loading"]),
-    categories() {
-      return this.$store.getters. loadedCategory;
+  export default {
+    name: "Post",
+    data() {
+      return {
+        images: [],
+        cat: "",
+        user: firebase.auth().currentUser.uid,
+        chosen: this.$route.params.id,
+        comments: [],
+        likes:[],
+        dislikes: [],
+        id: firebase.auth().currentUser.uid,
+      };
     },
-    // testing(){
-    //   return this.images.slice().sort(function(a, b) {
-    //     return b.timestamp - a.timestamp;
-    //   });
-    // }
+    computed: {
+      ...mapGetters(["loading"]),
+      categories() {
+        return this.$store.getters. loadedCategory;
+      },
+      // testing(){
+      //   return this.images.slice().sort(function(a, b) {
+      //     return b.timestamp - a.timestamp;
+      //   });
+      // }
 
-  },
+    },
 
-  methods: {
-    messages(id) {
-      this.comments = [];
-      this.likes=[],
-      this.dislikes=[]
-      db.collection("message")
-        .where("Meme_id", "==", id)
-        .onSnapshot(querySnapshot => {
-          querySnapshot.docChanges().forEach(change => {
-            if (change.type === "added") {
-              this.comments.push(change.doc.data());
-            }
-          });
-        });db.collection("likes")
-        .where("Meme_id", "==", id)
-        .onSnapshot(querySnapshot => {
-          querySnapshot.docChanges().forEach(change => {
-            if (change.type === "added") {
-              this.likes.push(change.doc.data());
-            }
-          });
-        });db.collection("dislikes")
-        .where("Meme_id", "==", id)
-        .onSnapshot(querySnapshot => {
-          querySnapshot.docChanges().forEach(change => {
-            if (change.type === "added") {
-              this.dislikes.push(change.doc.data());
-            }
-          });
-        });
-    }
-  },
+    methods: {
+      messages(id) {
+        this.comments = [];
+        this.likes=[],
+                this.dislikes=[]
+        db.collection("message")
+                .where("Meme_id", "==", id)
+                .onSnapshot(querySnapshot => {
+                  querySnapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                      this.comments.push(change.doc.data());
+                    }
+                  });
+                });db.collection("likes")
+                .where("Meme_id", "==", id)
+                .onSnapshot(querySnapshot => {
+                  querySnapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                      this.likes.push(change.doc.data());
+                    }
+                  });
+                });db.collection("dislikes")
+                .where("Meme_id", "==", id)
+                .onSnapshot(querySnapshot => {
+                  querySnapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                      this.dislikes.push(change.doc.data());
+                    }
+                  });
+                });
+      }
+    },
 
-  created() {
+    created() {
 
       let me =this.$route.params.id;
       var id = firebase.auth().currentUser.uid;
@@ -178,7 +178,7 @@ export default {
                   querySnapshot.docChanges().forEach(change => {
                     if (change.type === "added") {
 
-                      this.images = change.doc.data();
+                      this.images.push(change.doc.data());
                     }
                   });
 
@@ -188,7 +188,7 @@ export default {
                 .onSnapshot(querySnapshot => {
                   querySnapshot.docChanges().forEach(change => {
                     if (change.type === "added") {
-                      this.images = change.doc.data();
+                      this.images.push(change.doc.data());
                     }
                   });
 
@@ -201,7 +201,7 @@ export default {
                 .onSnapshot(querySnapshot => {
                   querySnapshot.docChanges().forEach(change => {
                     if (change.type === "added") {
-                      this.images = change.doc.data();
+                      this.images.push(change.doc.data());
                     }
                   });
 
@@ -214,7 +214,7 @@ export default {
                 .onSnapshot(querySnapshot => {
                   querySnapshot.docChanges().forEach(change => {
                     if (change.type === "added") {
-                      this.images = change.doc.data();
+                      this.images.push(change.doc.data());
                     }
                   });
 
@@ -225,7 +225,7 @@ export default {
                   querySnapshot.docChanges().forEach(change => {
                     if (change.type === "added") {
 
-                      this.images = change.doc.data();
+                      this.images.push(change.doc.data());
                     }
                   });
 
@@ -234,9 +234,9 @@ export default {
 
 
 
-    this.messages;
-  }
-};
+      this.messages()
+    }
+  };
 </script>
 
 <style scoped>
