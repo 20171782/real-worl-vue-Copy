@@ -3,7 +3,7 @@
 
 
     <nav class="navbar fixed-top navbar-expand-md custom-navbar navbar-dark">
-     <img class="navbar-brand" src="/crabs.png" id="logo_custom" width="12%"  alt="logo">
+     <router-link to="/GMap/Animated"><img class="navbar-brand" src="/crabs.png" id="logo_custom" width="150"  alt="logo"></router-link>
       <button class="navbar-toggler navbar-toggler-right custom-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon "></span>
       </button>

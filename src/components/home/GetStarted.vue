@@ -6,7 +6,7 @@
     <body>
     <section id="blog-section " style="margin-top: 90px">
       <div class="container">
-          <h1 class="uk-text-center inner-shadow uk-text-capitalize">{{ gallery[0].title }}</h1>
+
         <div class="row">
 
             <div class="col-lg-8" v-for="gal in gallery">
@@ -91,6 +91,8 @@
                 </aside>
               </div>
 
+
+
               <div class="col-lg-6 col-md-6">
                 <aside>
                     <img :src="gallery[0].secondImage" alt="">
@@ -113,6 +115,7 @@
                   </div>
                 </aside>
               </div>
+
             </div>
 
 
@@ -219,7 +222,7 @@
             </div>
 
 
-                https://www.tiktok.com/@_ehiz/video/6954548929421708549?lang=en&is_copy_url=0&is_from_webapp=v1&sender_device=pc&sender_web_id=6958928922981893638
+                <h1 class="">{{ gallery[0].title }}</h1>
 
 
 
@@ -443,7 +446,7 @@
         max-height: 200px;
     }
   h1 {
-    font-size: 36px;
+    font-size: 26px;
     margin: 16px 0;
     font-family: $font-serif;
     font-weight: 900;

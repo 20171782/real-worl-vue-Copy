@@ -22,12 +22,11 @@
             </div>
 
         </div>
-       <div v-for="image in images" :key="image.timestamp" class="uk-section-muted ">
 
-          <div >
-              <h1 class="uk-text-center inner-shadow uk-text-capitalize" style="padding-top: 10px">{{ image.title }}</h1>
-
-              <div class="box-tweet">
+       <div v-for="image in images" :key="image.timestamp" class="uk-section-muted " v-if="image.privacy == 'Public'">
+           <div >
+              <h1 class="uk-text-center inner-shadow uk-text-capitalize" style="padding-top: 10px"></h1>
+               <div class="box-tweet">
                   <div class="grid-tweet">
                       <div>
                           <img
@@ -36,22 +35,16 @@
                                   class="img-user-tweet"
                           />
                       </div>
-
                       <div>
                           <p>
                               <strong>{{image.alias}}</strong>
                               <span class="username-twitter">@</span>
                               <span class="username-twitter">{{ image.timestamp|formatDate }}</span>
                           </p>
-                          <p>
-                              {{image.description}}
-                          </p>
-
-
-
-
-
-<!--                                   Video URL-->
+                          <h1>
+                              {{ image.title }}
+                          </h1>
+                          <!-- Video URL-->
                           <router-link :to="'/start/' + image.Meme_id">
                                <div class="row mt-post-tweet" v-if="image.VideoIdOne  && image.VideoIdTwo ">
                                   <div class="col-sm-3 nopadding">
@@ -143,14 +136,250 @@
                       </div>
                   </div>
               </div>
-
-          </div>
-
-
-
-
-
+           </div>
        </div>
+
+
+        <div v-for="image in images" :key="image.timestamp" class="uk-section-muted " v-if="image.privacy == 'Only Me' && image.user_id == id">
+           <div >
+              <h1 class="uk-text-center inner-shadow uk-text-capitalize" style="padding-top: 10px"></h1>
+               <div class="box-tweet">
+                  <div class="grid-tweet">
+                      <div>
+                          <img
+                                  :src="image.Photo"
+                                  alt=""
+                                  class="img-user-tweet"
+                          />
+                      </div>
+                      <div>
+                          <p>
+                              <strong>{{image.alias}}</strong>
+                              <span class="username-twitter">@</span>
+                              <span class="username-twitter">{{ image.timestamp|formatDate }}</span>
+                          </p>
+                          <h1>
+                              {{ image.title }}
+                          </h1>
+                          <!-- Video URL-->
+                          <router-link :to="'/start/' + image.Meme_id">
+                               <div class="row mt-post-tweet" v-if="image.VideoIdOne  && image.VideoIdTwo ">
+                                  <div class="col-sm-3 nopadding">
+                                      <div class="embed-responsive embed-responsive-16by9">
+                                          <iframe :src="'https://www.youtube-nocookie.com/embed/' + image.VideoIdOne + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="880" height="515" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-3 nopadding">
+                                      <div class="embed-responsive embed-responsive-16by9">
+                                          <iframe :src="'https://www.youtube-nocookie.com/embed/' + image.VideoIdTwo + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="880" height="515" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+                                      </div>
+                                  </div>
+                              </div></router-link>
+
+<!--                                 Local Video-->
+                          <router-link :to="'/start/' + image.Meme_id" >
+                              <div class="row mt-post-tweet"  v-if="image.VideoOne  && image.VideoTwo " >
+                              <div class="col-sm-3 nopadding">
+                                  <div class="video-responsive video-responsive-16by9">
+                                      <video s width="880" height="515" :src="image.VideoOne" loop muted playsinline  controls  uk-video="autoplay: inview"></video>
+
+
+                                  </div>
+                              </div>
+                              <div class="col-sm-3 nopadding">
+                                  <div class="video-responsive video-responsive-16by9">
+                                      <video width="880" height="515" :src="image.VideoTwo"  loop muted playsinline  controls  uk-video="autoplay: inview"></video>
+
+                                  </div>
+                              </div>
+                          </div></router-link>
+
+                          <!--  Local Image        -->
+                          <router-link :to="'/start/' + image.Meme_id">
+                              <div class="row mt-post-tweet"  v-if="image.image  &&  image.secondImage " >
+                              <div class="col-sm-3 nopadding">
+                                  <div class="image-responsive image-responsive-16by9">
+                                      <img   :src="image.image" alt="">
+
+                                  </div>
+                              </div>
+                              <div class="col-sm-3 nopadding">
+                                  <div class="image-responsive image-responsive-16by9">
+                                      <img   :src="image.secondImage" alt="">
+
+                                  </div>
+                              </div>
+                          </div></router-link>
+
+
+                          <div class="grid-reactions">
+                              <div class="grid-box-reaction">
+                                  <div class="hover-reaction hover-reaction-comment">
+
+                                      <i class="fa fa-thumbs-up" style="color:deepskyblue"></i>
+                                  </div>
+                                  <div class="mt-counter">
+                                      <p>{{image.likes}}</p>
+                                  </div>
+                              </div>
+                              <div class="grid-box-reaction">
+                                  <div class="hover-reaction hover-reaction-retweet">
+                                      <i class="fa fa-thumbs-down" style="color:red"></i>
+                                  </div>
+                                  <div class="mt-counter">
+                                      <p>{{image.dislikes}}</p>
+                                  </div>
+                              </div>
+                              <div class="grid-box-reaction">
+                                  <div class="hover-reaction hover-reaction-like">
+                                      <i class="fa fa-comments" style="color:forestgreen"></i>
+                                  </div>
+
+                                  <div class="mt-counter">
+                                      <p>{{image.counter}}</p>
+                                  </div>
+                              </div>
+                              <div class="grid-box-reaction">
+                                  <div class="hover-reaction hover-reaction-comment">
+
+                                      <i class="fa fa-share" style="color:brown" ></i>
+                                  </div>
+                                  <div class="mt-counter">
+<!--                                      <p>5</p>-->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+           </div>
+       </div>
+
+
+        <div v-for="image in images" :key="image.timestamp" class="uk-section-muted " v-if="image.privacy == 'Frens' ">
+           <div >
+              <h1 class="uk-text-center inner-shadow uk-text-capitalize" style="padding-top: 10px"></h1>
+               <div class="box-tweet">
+                  <div class="grid-tweet">
+                      <div>
+                          <img
+                                  :src="image.Photo"
+                                  alt=""
+                                  class="img-user-tweet"
+                          />
+                      </div>
+                      <div>
+                          <p>
+                              <strong>{{image.alias}}</strong>
+                              <span class="username-twitter">@</span>
+                              <span class="username-twitter">{{ image.timestamp|formatDate }}</span>
+                          </p>
+                          <h1>
+                              {{ image.title }}
+                          </h1>
+                          <!-- Video URL-->
+                          <router-link :to="'/start/' + image.Meme_id">
+                               <div class="row mt-post-tweet" v-if="image.VideoIdOne  && image.VideoIdTwo ">
+                                  <div class="col-sm-3 nopadding">
+                                      <div class="embed-responsive embed-responsive-16by9">
+                                          <iframe :src="'https://www.youtube-nocookie.com/embed/' + image.VideoIdOne + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="880" height="515" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-3 nopadding">
+                                      <div class="embed-responsive embed-responsive-16by9">
+                                          <iframe :src="'https://www.youtube-nocookie.com/embed/' + image.VideoIdTwo + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="880" height="515" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+                                      </div>
+                                  </div>
+                              </div></router-link>
+
+<!--                                 Local Video-->
+                          <router-link :to="'/start/' + image.Meme_id" >
+                              <div class="row mt-post-tweet"  v-if="image.VideoOne  && image.VideoTwo " >
+                              <div class="col-sm-3 nopadding">
+                                  <div class="video-responsive video-responsive-16by9">
+                                      <video s width="880" height="515" :src="image.VideoOne" loop muted playsinline  controls  uk-video="autoplay: inview"></video>
+
+
+                                  </div>
+                              </div>
+                              <div class="col-sm-3 nopadding">
+                                  <div class="video-responsive video-responsive-16by9">
+                                      <video width="880" height="515" :src="image.VideoTwo"  loop muted playsinline  controls  uk-video="autoplay: inview"></video>
+
+                                  </div>
+                              </div>
+                          </div></router-link>
+
+                          <!--  Local Image        -->
+                          <router-link :to="'/start/' + image.Meme_id">
+                              <div class="row mt-post-tweet"  v-if="image.image  &&  image.secondImage " >
+                              <div class="col-sm-3 nopadding">
+                                  <div class="image-responsive image-responsive-16by9">
+                                      <img   :src="image.image" alt="">
+
+                                  </div>
+                              </div>
+                              <div class="col-sm-3 nopadding">
+                                  <div class="image-responsive image-responsive-16by9">
+                                      <img   :src="image.secondImage" alt="">
+
+                                  </div>
+                              </div>
+                          </div></router-link>
+
+
+                          <div class="grid-reactions">
+                              <div class="grid-box-reaction">
+                                  <div class="hover-reaction hover-reaction-comment">
+
+                                      <i class="fa fa-thumbs-up" style="color:deepskyblue"></i>
+                                  </div>
+                                  <div class="mt-counter">
+                                      <p>{{image.likes}}</p>
+                                  </div>
+                              </div>
+                              <div class="grid-box-reaction">
+                                  <div class="hover-reaction hover-reaction-retweet">
+                                      <i class="fa fa-thumbs-down" style="color:red"></i>
+                                  </div>
+                                  <div class="mt-counter">
+                                      <p>{{image.dislikes}}</p>
+                                  </div>
+                              </div>
+                              <div class="grid-box-reaction">
+                                  <div class="hover-reaction hover-reaction-like">
+                                      <i class="fa fa-comments" style="color:forestgreen"></i>
+                                  </div>
+
+                                  <div class="mt-counter">
+                                      <p>{{image.counter}}</p>
+                                  </div>
+                              </div>
+                              <div class="grid-box-reaction">
+                                  <div class="hover-reaction hover-reaction-comment">
+
+                                      <i class="fa fa-share" style="color:brown" ></i>
+                                  </div>
+                                  <div class="mt-counter">
+<!--                                      <p>5</p>-->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+           </div>
+       </div>
+
+
+
+
+
+
+
+
     </div>
 </template>
 
@@ -158,6 +387,7 @@
     import { mapGetters } from "vuex";
     import firebase from "firebase";
     import db from "@/firebase/init";
+    import {fb} from "@/firebase/init";
 
     export default {
         name: "Post",
@@ -171,7 +401,15 @@
                 likes:[],
                 dislikes: [],
                 id: firebase.auth().currentUser.uid,
+                frens:[],
+                Friends:[],
             };
+        },
+        firestore() {
+            return {
+                frens: fb.collection('friendships'),
+                Friends: fb.collection('friendships')
+            }
         },
         computed: {
             ...mapGetters(["loading"]),
@@ -220,6 +458,18 @@
         },
 
         created() {
+            this.$binding("frens", fb.collection("friendships").where('user_requested', '==', this.id).where('status','==',1))
+                .then((ford) => {
+                    this.frens === ford // => __ob__: Observer
+                }).catch(err => {
+                console.error(err)
+            })
+            this.$binding("Friends", fb.collection("friendships").where('requester', '==', this.id).where('status','==',1).where('check','==',1))
+                .then((ford) => {
+                    this.Friends === ford // => __ob__: Observer
+                }).catch(err => {
+                console.error(err)
+            })
 
             let me =this.$route.params.id;
             var id = firebase.auth().currentUser.uid;
@@ -438,11 +688,7 @@
         font-size: 15px;
     }
 
-    .img-post-tweet {
-        height: 285.19px;
-        width: 507px;
-        border-radius: 10px;
-    }
+
 
     .mt-post-tweet {
         margin-top: 10px;
@@ -476,16 +722,13 @@
         fill: red;
     }
 
-    .mt-icon-reaction{
-        margin-top: 5px;
-    }
+
     .mt-counter{
         margin-top: 5px;
     }
 
     h1 {
-        font-size: 25px;
-        margin: 26px 0px 0px 100px;
+        font-size: 20px;
         font-family: $font-serif;
         font-weight: 900;
     }
@@ -493,3 +736,4 @@
 
 
 </style>
+
