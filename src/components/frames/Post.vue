@@ -60,11 +60,11 @@
                                   </div>
                               </div></router-link>
 
-<!--                                 Local Video-->
+                           <!--                                 Local Video-->
                           <router-link :to="'/start/' + image.Meme_id" >
                               <div class="row mt-post-tweet"  v-if="image.VideoOne  && image.VideoTwo " >
                               <div class="col-sm-3 nopadding">
-                                  <div class="video-responsive video-responsive-16by9">
+                                  <div class="video-responsive ">
                                       <video s width="880" height="515" :src="image.VideoOne" loop muted playsinline  controls  uk-video="autoplay: inview"></video>
 
 
@@ -89,7 +89,7 @@
                               </div>
                               <div class="col-sm-3 nopadding">
                                   <div class="image-responsive image-responsive-16by9">
-                                      <img   :src="image.secondImage" alt="">
+                                      <img  :src="image.secondImage" alt="">
 
                                   </div>
                               </div>
@@ -139,7 +139,7 @@
            </div>
        </div>
 
-
+        <!--Private -->
         <div v-for="image in images" :key="image.timestamp" class="uk-section-muted " v-if="image.privacy == 'Only Me' && image.user_id == id">
            <div >
               <h1 class="uk-text-center inner-shadow uk-text-capitalize" style="padding-top: 10px"></h1>
@@ -256,7 +256,7 @@
            </div>
        </div>
 
-
+           <!-- Frens  -->
         <div v-for="image in images" :key="image.timestamp" class="uk-section-muted " v-if="image.privacy == 'Frens' ">
            <div >
               <h1 class="uk-text-center inner-shadow uk-text-capitalize" style="padding-top: 10px"></h1>

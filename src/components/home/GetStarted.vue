@@ -125,7 +125,13 @@
 
               <div class="col-lg-6 col-md-6">
                 <aside>
-                    <img :src="gallery[0].ItemOne" alt="">
+                    <div class="container">
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p class="uk-text-center para" style=" font-size: 36px !important; margin: 16px 0;font-family: $font-serif;font-weight: 900;"> {{gal.ItemOne}}</p></div>
+                        </div>
+                    </div>
 
                   <div class="content-footer">
                     <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
@@ -148,7 +154,12 @@
 
               <div class="col-lg-6 col-md-6">
                 <aside>
-                    <img :src="gallery[0].ItemTwo" alt="">
+                    <div class="container">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p class="uk-text-center para" style=" font-size: 36px !important; margin: 16px 0;font-family: $font-serif;font-weight: 900;"> {{gal.ItemTwo}}</p></div>
+                        </div>
+                    </div>
 
                   <div class="content-footer">
                     <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
@@ -441,6 +452,10 @@
 </script>
 
 <style scoped>
+
+    .panel-body{
+        height: 300px;
+    }
     video {
          width: 600px;
         max-height: 200px;
