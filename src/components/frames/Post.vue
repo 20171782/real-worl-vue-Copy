@@ -23,7 +23,7 @@
 
         </div>
 
-       <div v-for="image in images" :key="image.timestamp" class="uk-section-muted " v-if="image.privacy == 'Public'">
+       <div  v-for="image in images" :key="image.timestamp" class=" uk-card-default " v-if="image.privacy == 'Public'">
            <div >
               <h1 class="uk-text-center inner-shadow uk-text-capitalize" style="padding-top: 10px"></h1>
                <div class="box-tweet">
@@ -49,13 +49,13 @@
                                <div class="row mt-post-tweet" v-if="image.VideoIdOne  && image.VideoIdTwo ">
                                   <div class="col-sm-3 nopadding">
                                       <div class="embed-responsive embed-responsive-16by9">
-                                          <iframe :src="'https://www.youtube-nocookie.com/embed/' + image.VideoIdOne + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="880" height="515" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+                                          <iframe style="border-radius: 10px" :src="'https://www.youtube-nocookie.com/embed/' + image.VideoIdOne + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="880" height="515" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
 
                                       </div>
                                   </div>
                                   <div class="col-sm-3 nopadding">
                                       <div class="embed-responsive embed-responsive-16by9">
-                                          <iframe :src="'https://www.youtube-nocookie.com/embed/' + image.VideoIdTwo + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="880" height="515" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+                                          <iframe  style="border-radius: 10px;padding-left: 3px" :src="'https://www.youtube-nocookie.com/embed/' + image.VideoIdTwo + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="880" height="515" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
                                       </div>
                                   </div>
                               </div></router-link>
@@ -63,37 +63,40 @@
                            <!--                                 Local Video-->
                           <router-link :to="'/start/' + image.Meme_id" >
                               <div class="row mt-post-tweet"  v-if="image.VideoOne  && image.VideoTwo " >
-                              <div class="col-sm-3 nopadding">
-                                  <div class="video-responsive ">
-                                      <video s width="880" height="515" :src="image.VideoOne" loop muted playsinline  controls  uk-video="autoplay: inview"></video>
+                              <div class="column nopadding">
+                                      <video   :src="image.VideoOne" loop muted playsinline  controls  uk-video="autoplay: inview"></video>
 
-
-                                  </div>
                               </div>
-                              <div class="col-sm-3 nopadding">
-                                  <div class="video-responsive video-responsive-16by9">
-                                      <video width="880" height="515" :src="image.VideoTwo"  loop muted playsinline  controls  uk-video="autoplay: inview"></video>
-
-                                  </div>
+                              <div class="column nopadding">
+                                  <video  :src="image.VideoTwo"  loop muted playsinline  controls  uk-video="autoplay: inview"></video>
                               </div>
                           </div></router-link>
 
                           <!--  Local Image        -->
-                          <router-link :to="'/start/' + image.Meme_id">
-                              <div class="row mt-post-tweet"  v-if="image.image  &&  image.secondImage " >
-                              <div class="col-sm-3 nopadding">
-                                  <div class="image-responsive image-responsive-16by9">
-                                      <img   :src="image.image" alt="">
+                         <div>
+                            <span>{{image.TitleOne}}</span>/
+                            <span> {{image.TitleTwo}} </span>/
+                            <span> {{image.TitleThree}} </span>/
+                            <span> {{image.TitleFour}} </span>
+                             <router-link :to="'/start/' + image.Meme_id" >
+                                 <div class="row mt-post-tweet"  >
+                                     <div class="column nopadding" v-if="image.image">
+                                         <img   :src="image.image" alt="">
+                                     </div>
 
-                                  </div>
-                              </div>
-                              <div class="col-sm-3 nopadding">
-                                  <div class="image-responsive image-responsive-16by9">
-                                      <img  :src="image.secondImage" alt="">
+                                     <div class="column nopadding" v-if="image.secondImage">
+                                             <img  :src="image.secondImage" alt="">
+                                     </div>
+                                     <div class="column nopadding" v-if="image.ImageThree">
+                                         <img  :src="image.ImageThree" alt="">
+                                     </div>
 
-                                  </div>
-                              </div>
-                          </div></router-link>
+                                     <div class="column nopadding"  v-if="image.ImageFour">
+                                         <img  :src="image.ImageFour" alt="">
+                                     </div>
+                                 </div></router-link>
+
+                         </div>
 
 
                           <div class="grid-reactions">
@@ -541,15 +544,47 @@
 </script>
 
 <style scoped>
+    .mt-post-tweet img{
+        border-radius: 10px;
+        /*height: 100px !important;*/
+    }.mt-post-tweet video{
+        border-radius: 10px;
+        height: 100px !important;
+    }
+    * {
+        box-sizing: border-box;
+    }
+
+    .column {
+        float: left;
+        width: 24%;
+        padding: 3px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+
+
+
+
+
+
+
  i{
      margin-top: 8px;
  }
-    .nopadding {
-        padding: 2px !important;
-        margin: 0 !important;
-        outline: 2px solid #333;
-        background: #333;
-    }
+    /*.nopadding {*/
+    /*    padding: 2px !important;*/
+    /*    margin: 0 !important;*/
+    /*    outline: 2px solid #333;*/
+    /*    background: #333;*/
+    /*    border-radius: 10px;*/
+    /*}*/
     * {
         margin: 0;
         padding: 0;
@@ -669,7 +704,7 @@
     }
     .box-tweet:hover {
         transition: 0.5s;
-        background-color: #f8f8f8;
+        /*background-color: #f8f8f8;*/
     }
     .img-user-tweet {
         height: 49px;

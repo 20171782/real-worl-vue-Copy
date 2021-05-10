@@ -55,7 +55,8 @@ export default {
         if(this.ID){
             db.collection('likes').doc(this.ids + this.id).delete().then(()=>{
               db.collection('Memes').doc(this.ids).update({
-                likes:this.likenum
+                likes:this.likenum,
+                dislikes:this.dislikenum
               })
             })
         }else{
@@ -68,7 +69,8 @@ export default {
                 });
             db.collection('dislikes').doc(this.ids + this.id).delete().then(()=>{
                 db.collection('Memes').doc(this.ids).update({
-                    likes:this.likenum
+                    likes:this.likenum,
+                  dislikes:this.dislikenum
                 })
             })
         }
@@ -79,7 +81,8 @@ export default {
         if(this.UID){
             db.collection('dislikes').doc(this.ids + this.id).delete().then(()=>{
               db.collection('Memes').doc(this.ids).update({
-                dislikes:this.dislikenum
+                dislikes:this.dislikenum,
+                likes:this.likenum,
               })
             })
         }else{
@@ -92,7 +95,8 @@ export default {
                 });
             db.collection('likes').doc(this.ids + this.id).delete().then(()=>{
               db.collection('Memes').doc(this.ids).update({
-                dislikes:this.dislikenum
+                dislikes:this.dislikenum,
+                likes:this.likenum,
               })
             })
         }
