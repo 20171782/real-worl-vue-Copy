@@ -4,8 +4,11 @@
         <div class="">
             <img v-if="imageUrl"   :src="imageUrl" alt="" width="300px" height="300px">
             <img v-if="SecondImageUrl" :src="SecondImageUrl" alt="" width="300px" height="300px">
+            <img v-if="ImageThree" :src="ImageThree" alt="" width="300px" height="300px">
+            <img v-if="ImageFour" :src="ImageFour" alt="" width="300px" height="300px">
             <img v-if="thumb" :src="thumb" alt="" width="300px" height="300px">
             <form @submit.prevent="sendMessage" >
+                <label for="">Ask a question</label>
                 <div class="top">
                     <input type="text" class="uk-input"  placeholder="Question..." v-model="title" />
                 </div>
@@ -13,16 +16,30 @@
                 <div class="top">
                     <input type="text" class="uk-input"  placeholder="descriptiion..." v-model="description" />
                 </div>
+
+
                 <div class="top">
-                    <input type="text" class="uk-input"  placeholder="prediction..." v-model="prediction" />
+                    <input type="text" class="uk-input"  placeholder="TitleOne..." v-model="TitleOne"  />
+                </div>
+                <div class="top">
+                    <input type="text" class="uk-input"  placeholder="TitleTwo..." v-model="TitleTwo"  />
                 </div>
 
                 <div class="top">
-                    <input type="text" class="uk-input"  placeholder="TitleOne..." v-model="TitleOne" />
+                    <input type="text" class="uk-input"  placeholder="TitleThree..." v-model="TitleThree"  />
                 </div>
                 <div class="top">
-                    <input type="text" class="uk-input"  placeholder="TitleTwo..." v-model="TitleTwo" />
+                    <input type="text" class="uk-input"  placeholder="TitleFour..." v-model="TitleFour"  />
                 </div>
+
+                <div class="top">
+                    <label for="">What is your prediction?{{prediction}}</label>
+                    <p style="color: green" @click="predictionOne">{{TitleOne}}</p>
+                    <p style="color: green" @click="predictionTwo">{{TitleTwo}}</p>
+                    <p style="color: green" @click="predictionThree">{{TitleThree}}</p>
+                    <p style="color: green" @click="predictionFour">{{TitleFour}}</p>
+                </div>
+
                 <!--          <label>Browser Select</label>-->
                 <br>
                 <label for="">Categories</label>
@@ -68,6 +85,14 @@
                         @click="upload"
                 >upload
                 </button>
+                <div class="js-upload" uk-form-custom>
+                    <input type="file" multiple @change="uploadImageThree">
+                    <button class="uk-button uk-button-default" type="button" tabindex="-1">{{progressThree}}Video Three</button>
+                </div>
+                <div class="js-upload" uk-form-custom>
+                    <input type="file" multiple @change="uploadImageFour">
+                    <button class="uk-button uk-button-default" type="button" tabindex="-1">{{progressFour}}Video Four</button>
+                </div>
             </div>
 
 
@@ -112,12 +137,85 @@
                 TitleOne:'',
                 TitleTwo:'',
                 thumb:'',
+                see:false,
+                TitleThree:'',
+                TitleFour:'',
+                ImageThree:'',
+                ImageFour:'',
+                progressThree:'',
+                progressFour:'',
+
 
 
 
             };
         },
         methods: {
+            uploadImageFour(e) {
+                let file = e.target.files[0]
+                console.log(file)
+                var storageRef = firebase.storage().ref('test/' + file.name);
+                let uploadTask = storageRef.put(file)
+
+                uploadTask.on('state_changed',
+                    (snapshot) => {
+                        this.progressFour = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    },
+                    (error) => {
+                        // Handle unsuccessful uploads
+                    },
+                    () => {
+                        // Handle successful uploads on complete
+                        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                            this.ImageFour = downloadURL;
+                            console.log('File available at', downloadURL);
+                        });
+                    }
+                );
+
+            },
+            uploadImageThree(e) {
+                let file = e.target.files[0]
+                console.log(file)
+                var storageRef = firebase.storage().ref('test/' + file.name);
+                let uploadTask = storageRef.put(file)
+
+                uploadTask.on('state_changed',
+                    (snapshot) => {
+                        this.progressThree = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    },
+                    (error) => {
+                        // Handle unsuccessful uploads
+                    },
+                    () => {
+                        // Handle successful uploads on complete
+                        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                            this.ImageThree = downloadURL;
+                            console.log('File available at', downloadURL);
+                        });
+                    }
+                );
+
+            },
+            predictionOne(){
+                this.prediction = this.TitleOne
+            },
+            predictionTwo(){
+                this.prediction = this.TitleTwo
+            },
+            predictionThree(){
+                this.prediction = this.TitleThree
+            },
+            predictionFour(){
+                this.prediction = this.TitleFour
+            },
+            // MyPrediction(){
+            //     if(this.TitleOne && this.TitleTwo){
+            //         this.see = true
+            //     }
+            // },
             sendMessage() {
                 if (this.title) {
                     var user = firebase.auth().currentUser;
@@ -139,7 +237,12 @@
                             prediction:this.prediction,
                             TitleOne:this.TitleOne,
                             TitleTwo:this.TitleTwo,
-                            likecount:this.likecount
+                            TitleThree:this.TitleThree,
+                            TitleFour:this.TitleFour,
+                            ImageThree:this.ImageThree,
+                            ImageFour:this.ImageFour,
+
+
 
                         }).then((data)=>{
                         const key=data.key
@@ -160,18 +263,25 @@
                     this.message = null;
                     this.errors = null;
                     this.imageUrl=null,
-                        this.SecondImageUrl=null,
-
-                        this.description=null
+                    this.SecondImageUrl=null,
+                    this.description=null
                     this.title=null
                     this.choose=null
                     this.cat=null
                     this.thumb=null
+                    thumb:this.thumb = null
+                       this.prediction = null
+                        this.TitleOne = null
+                       this.TitleTwo = null
+                        this.TitleThree = null
+                        this.TitleFour = null
 
                 } else {
                     this.errors = "You need to enter a message";
                 }
             },
+
+
 
             upload() {
                 this.$refs.fileInput.click()

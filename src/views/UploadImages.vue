@@ -9,7 +9,7 @@
                 <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
                 <div class="uk-grid-collapse uk-child-width-1-2@s " uk-grid>
                     <div class="uk-background-cover" style="background-image: url('https://cdn.pixabay.com/photo/2018/03/09/10/41/paper-3211179__340.jpg');" uk-height-viewport></div>
-                    <div class="uk-padding-large">
+                    <div class="uk-padding-large uk-margin-large-top">
                         <ul class="uk-subnav uk-subnav-pill" uk-switcher>
                             <li><a href="#">Image</a></li>
                             <li><a href="#">URL</a></li>

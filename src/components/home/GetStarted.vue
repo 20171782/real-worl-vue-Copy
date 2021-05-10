@@ -1,28 +1,28 @@
 <template>
-  <div>
     <div>
-      <navbar></navbar>
-    </div>
-    <body>
-    <section id="blog-section " style="margin-top: 90px">
-      <div class="container">
+        <div>
+            <navbar></navbar>
+        </div>
+        <body>
+        <section id="blog-section " style="margin-top: 90px">
+            <div class="container">
 
-        <div class="row">
+                <div class="row">
 
-            <div class="col-lg-8" v-for="gal in gallery">
+                    <div class="col-lg-8" v-for="gal in gallery">
 
 
-              <!-- Video URl  -->
-            <div class="row" v-if="gallery[0].VideoIdOne  && gallery[0].VideoIdTwo " >
+                        <!-- Video URl  -->
+                        <div class="row" v-if="gallery[0].VideoIdOne  && gallery[0].VideoIdTwo " >
 
-              <div class="col-lg-6 col-md-6">
-                <aside>
-                  <iframe :src="'https://www.youtube-nocookie.com/embed/' + gallery[0].VideoIdOne + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="1920" height="1080" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+                            <div class="col-lg-6 col-md-6">
+                                <aside>
+                                    <iframe :src="'https://www.youtube-nocookie.com/embed/' + gallery[0].VideoIdOne + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="1920" height="1080" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
 
-                  <div class="content-footer">
-                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-                    <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
-                    <span class="pull-right">
+                                    <div class="content-footer">
+                                        <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                                        <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
+                                        <span class="pull-right">
 
 				<a v-if="ID" @click="pickfirst(gal.VideoIdOne,gal.Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                   {{ PickedNum }} <i style="color: yellow"  class="fa fa-heart"></i>
@@ -34,18 +34,18 @@
                       </a>
 				</span>
 
-                  </div>
-                </aside>
-              </div>
+                                    </div>
+                                </aside>
+                            </div>
 
-              <div class="col-lg-6 col-md-6">
-                <aside>
-                  <iframe :src="'https://www.youtube-nocookie.com/embed/' + gallery[0].VideoIdTwo + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="1920" height="1080" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+                            <div class="col-lg-6 col-md-6">
+                                <aside>
+                                    <iframe :src="'https://www.youtube-nocookie.com/embed/' + gallery[0].VideoIdTwo + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="1920" height="1080" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
 
-                  <div class="content-footer">
-                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-                    <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
-                    <span class="pull-right">
+                                    <div class="content-footer">
+                                        <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                                        <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
+                                        <span class="pull-right">
 
 				       <a  v-if="UID"  @click="pick2(gal.VideoIdTwo,gal.Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                   {{ Picked2likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
@@ -57,25 +57,28 @@
                       </a>
 				</span>
 
-                  </div>
-                </aside>
-              </div>
-            </div>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
 
 
 
 
-                    <!--Local Image  -->
-            <div class="row" v-if="gallery[0].image  && gallery[0].secondImage " >
+                        <!--Local Image  -->
+                        <div class="row" v-if="gallery[0].image  && gallery[0].secondImage " >
 
-              <div class="col-lg-6 col-md-6">
-                <aside>
-                    <img :src="gallery[0].image" alt="">
 
-                  <div class="content-footer">
-                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-                    <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
-                    <span class="pull-right">
+
+                        <!--  First Image            -->
+                            <div class="col-lg-6 col-md-6">
+                                <aside>
+                                    <img :src="gallery[0].image" alt="">
+
+                                    <div class="content-footer">
+                                        <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                                        <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
+                                        <span class="pull-right">
 
 				<a v-if="ID" @click="pickfirst" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                   {{ PickedNum }}
@@ -87,20 +90,20 @@
                         <span v-if="PickedNum">{{ PickedNum }}</span>
                       </a>
 				</span>
-                  </div>
-                </aside>
-              </div>
+                                    </div>
+                                </aside>
+                            </div>
 
 
+                              <!--Second Image-->
+                            <div class="col-lg-6 col-md-6">
+                                <aside>
+                                    <img :src="gallery[0].secondImage" alt="">
 
-              <div class="col-lg-6 col-md-6">
-                <aside>
-                    <img :src="gallery[0].secondImage" alt="">
-
-                  <div class="content-footer">
-                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-                    <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
-                    <span class="pull-right">
+                                    <div class="content-footer">
+                                        <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                                        <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
+                                        <span class="pull-right">
 
 				       <a  v-if="UID"  @click="pick2" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                   {{ Picked2likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
@@ -112,59 +115,110 @@
                       </a>
 				</span>
 
-                  </div>
-                </aside>
-              </div>
+                                    </div>
+                                </aside>
+                            </div>
 
-            </div>
+                           <!-- Third Image      -->
+                            <div class="col-lg-6 col-md-6">
+                                <aside>
+                                    <img :src="gallery[0].ImageThree" alt="">
 
+                                    <div class="content-footer">
+                                        <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                                        <span style="font-size: 16px;color: #fff;">{{gal.TitleThree}}</span>
+                                        <span class="pull-right">
 
-
-                    <!--Text   -->
-            <div class="row"  v-if="gallery[0].ItemOne  && gallery[0].ItemTwo " >
-
-              <div class="col-lg-6 col-md-6">
-                <aside>
-                    <div class="container">
-
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p class="uk-text-center para" style=" font-size: 36px !important; margin: 16px 0;font-family: $font-serif;font-weight: 900;"> {{gal.ItemOne}}</p></div>
-                        </div>
-                    </div>
-
-                  <div class="content-footer">
-                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-                    <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
-                    <span class="pull-right">
-
-				<a v-if="ID"@click="pickfirst(gal.ItemOne,gal.Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
-                  {{ PickedNum }}
-                    <i style="color: yellow"  class="fa fa-heart"></i>
-                  <span  v-if="PickedNum"> You chose {{gallery[0].TitleOne}}</span>
+				       <a  v-if="ID3"  @click="pick3" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                  {{ Picked3likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
+                  <span  v-if="Picked3likenum"> You chose {{gallery[0].TitleThree}}</span>
                 </a>
+                      <a v-else @click="pick3" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                        <i  class="fa fa-heart"></i>
+                        <span v-if="Picked3likenum">{{ Picked3likenum }}</span>
+                      </a>
+				</span>
+
+                                    </div>
+                                </aside>
+                            </div>
+
+
+                          <!--   Fourth Image-->
+                            <div class="col-lg-6 col-md-6">
+                                <aside>
+                                    <img :src="gallery[0].ImageFour" alt="">
+
+                                    <div class="content-footer">
+                                        <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                                        <span style="font-size: 16px;color: #fff;">{{gal.TitleFour}}</span>
+                                        <span class="pull-right">
+
+				       <a  v-if="ID4"  @click="pick4" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                  {{ Picked4likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
+                  <span  v-if="Picked4likenum"> You chose {{gallery[0].TitleFour}}</span>
+                </a>
+                      <a v-else @click="pick4" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                        <i  class="fa fa-heart"></i>
+                        <span v-if="Picked4likenum">{{ Picked4likenum }}</span>
+                      </a>
+				</span>
+
+                                    </div>
+                                </aside>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <!--Text   -->
+                        <div class="row"  v-if="gallery[0].ItemOne  && gallery[0].ItemTwo " >
+
+                            <div class="col-lg-6 col-md-6">
+                                <aside>
+                                    <div class="container">
+
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <p class="uk-text-center para" style=" font-size: 36px !important; margin: 16px 0;font-family: $font-serif;font-weight: 900;"> {{gal.ItemOne}}</p></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="content-footer">
+                                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                                    <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
+                                    <span class="pull-right">
+
+                        <a v-if="ID"@click="pickfirst(gal.ItemOne,gal.Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                          {{ PickedNum }}
+                            <i style="color: yellow"  class="fa fa-heart"></i>
+                          <span  v-if="PickedNum"> You chose {{gallery[0].TitleOne}}</span>
+                        </a>
                       <a v-else @click="pickfirst(gal.ItemOne,gal.Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                         <i  class="fa fa-heart"></i>
                         <span v-if="PickedNum">{{ PickedNum }}</span>
                       </a>
 				</span>
-                  </div>
-                </aside>
-              </div>
+                                    </div>
+                                </aside>
+                            </div>
 
-              <div class="col-lg-6 col-md-6">
-                <aside>
-                    <div class="container">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <p class="uk-text-center para" style=" font-size: 36px !important; margin: 16px 0;font-family: $font-serif;font-weight: 900;"> {{gal.ItemTwo}}</p></div>
-                        </div>
-                    </div>
+                            <div class="col-lg-6 col-md-6">
+                                <aside>
+                                    <div class="container">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <p class="uk-text-center para" style=" font-size: 36px !important; margin: 16px 0;font-family: $font-serif;font-weight: 900;"> {{gal.ItemTwo}}</p></div>
+                                        </div>
+                                    </div>
 
-                  <div class="content-footer">
-                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-                    <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
-                    <span class="pull-right">
+                                    <div class="content-footer">
+                                        <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                                        <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
+                                        <span class="pull-right">
 
 				       <a  v-if="UID"  @click="pick2" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                   {{ Picked2likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
@@ -176,23 +230,23 @@
                       </a>
 				</span>
 
-                  </div>
-                </aside>
-              </div>
-            </div>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
 
 
-                    <!--video   -->
-            <div class="row"  v-if="gallery[0].VideoOne  && gal.VideoTwo " >
+                        <!--video   -->
+                        <div class="row"  v-if="gallery[0].VideoOne  && gal.VideoTwo " >
 
-              <div class="col-lg-6 col-md-6">
-                <aside>
-                    <video :src="gal.VideoOne" loop muted playsinline  controls  uk-video="autoplay: inview"></video>
+                            <div class="col-lg-6 col-md-6">
+                                <aside>
+                                    <video :src="gal.VideoOne" loop muted playsinline  controls  uk-video="autoplay: inview"></video>
 
-                  <div class="content-footer">
-                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-                    <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
-                    <span class="pull-right">
+                                    <div class="content-footer">
+                                        <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                                        <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
+                                        <span class="pull-right">
 
 				<a v-if="ID"  @click="pickfirst(gallery[0].VideoOne,gallery[0].Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                   {{ PickedNum }}
@@ -204,18 +258,18 @@
                         <span v-if="PickedNum">{{ PickedNum }}</span>
                       </a>
 				</span>
-                  </div>
-                </aside>
-              </div>
+                                    </div>
+                                </aside>
+                            </div>
 
-              <div class="col-lg-6 col-md-6">
-                <aside>
-                    <video :src="gal.VideoTwo"  loop muted playsinline  controls  uk-video="autoplay: inview"></video>
+                            <div class="col-lg-6 col-md-6">
+                                <aside>
+                                    <video :src="gal.VideoTwo"  loop muted playsinline  controls  uk-video="autoplay: inview"></video>
 
-                  <div class="content-footer">
-                    <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-                    <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
-                    <span class="pull-right">
+                                    <div class="content-footer">
+                                        <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                                        <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
+                                        <span class="pull-right">
 
 				       <a  v-if="UID"  @click="pick2(gallery[0].VideoTwo,gallery[0].Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                   {{ Picked2likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
@@ -227,16 +281,13 @@
                       </a>
 				</span>
 
-                  </div>
-                </aside>
-              </div>
-            </div>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
 
 
-                <h1 class="">{{ gallery[0].title }}</h1>
-
-
-
+                        <h1 class="">{{ gallery[0].title }}</h1>
 
 
 
@@ -263,77 +314,80 @@
 
 
 
-            <!-- Like Button -->
-            <div style="float: right;padding-right: 15px" class="uk-margin-medium-top">
-              <likes :ids="ids"></likes>
-            </div>
 
-           <!-- User Who Posted   -->
-            <hr />
-            <div class="">
-              <div class="uk-width-auto d-flex">
-                <img
-                        class="uk-border-circle"
-                        width="40"
-                        height="40"
-                        :src="gal.Photo"
-                />
-                <div class="uk-width-expand ml-3">
-                  <b
-                  ><p class=" uk-margin-remove-bottom">{{ gal.name}}</p></b
-                  >
-                  <p
-                          style="font-size: 0.7em"
-                          class="uk-text-meta uk-margin-remove-top"
-                  >
-                    Published on
-                    <time>{{gal.timestamp|formatDate}}</time>
-                  </p>
+
+
+                        <!-- Like Button -->
+                        <div style="float: right;padding-right: 15px" class="uk-margin-medium-top">
+                            <likes :ids="ids"></likes>
+                        </div>
+
+                        <!-- User Who Posted   -->
+                        <hr />
+                        <div class="">
+                            <div class="uk-width-auto d-flex">
+                                <img
+                                        class="uk-border-circle"
+                                        width="40"
+                                        height="40"
+                                        :src="gal.Photo"
+                                />
+                                <div class="uk-width-expand ml-3">
+                                    <b
+                                    ><p class=" uk-margin-remove-bottom">{{ gal.name}}</p></b
+                                    >
+                                    <p
+                                            style="font-size: 0.7em"
+                                            class="uk-text-meta uk-margin-remove-top"
+                                    >
+                                        Published on
+                                        <time>{{gal.timestamp|formatDate}}</time>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul uk-accordion>
+                            <li >
+                                <a class="uk-accordion-title" href="#">Description</a>
+                                <div class="uk-accordion-content">
+                                    <p class=""> {{gal.description}}</p>
+                                </div>
+                            </li>
+
+                        </ul>
+
+
+                        <p class="uk-text-bold">My prediction was {{gal.prediction}}</p>
+
+                        <!--  Comment Length  -->
+                        <p v-if="comment">
+                            {{ comments.length }} <span style="font-size: 20px">Comment</span>
+                        </p>
+                        <p v-else style="font-size: 20px">
+                            {{ comments.length }}
+                            <span style="font-size: 20px;color: blue">Comments</span>
+                        </p>
+                        <chat :ids="ids" :Counter="Counter"></chat>
+                    </div>
+
+                    <!--  Side Videos -->
+                    <div class="col-md-4">
+                        <sidegal :ids="ids"></sidegal>
+                    </div>
+                    <!--           // RECENT POST===========-->
+
+
+
                 </div>
-              </div>
             </div>
 
-            <ul uk-accordion>
-              <li >
-                <a class="uk-accordion-title" href="#">Description</a>
-                <div class="uk-accordion-content">
-                  <p class=""> {{gal.description}}</p>
-                </div>
-              </li>
-
-            </ul>
-
-
-            <p class="uk-text-bold">My prediction was {{gal.prediction}}</p>
-
-              <!--  Comment Length  -->
-            <p v-if="comment">
-              {{ comments.length }} <span style="font-size: 20px">Comment</span>
-            </p>
-            <p v-else style="font-size: 20px">
-              {{ comments.length }}
-              <span style="font-size: 20px;color: blue">Comments</span>
-            </p>
-            <chat :ids="ids" :Counter="Counter"></chat>
-          </div>
-
-              <!--  Side Videos -->
-          <div class="col-md-4">
-            <sidegal :ids="ids"></sidegal>
-          </div>
-          <!--           // RECENT POST===========-->
+        </section>
 
 
 
-        </div>
-      </div>
-
-    </section>
-
-
-
-    </body>
-  </div>
+        </body>
+    </div>
 </template>
 
 <<script>
@@ -358,6 +412,8 @@
         comments: [],
         Picked:[],
         Picked2:[],
+        PickedThird:[],
+        PickedFourth:[],
         meme_id: null
       };
     },
@@ -377,6 +433,8 @@
                     image:link
                   });
           db.collection('Picked2').doc(this.ids + this.id).delete()
+          db.collection('Picked3').doc(this.ids + this.id).delete()
+          db.collection('Picked4').doc(this.ids + this.id).delete()
 
         }
 
@@ -394,9 +452,45 @@
                     Meme_id: this.ids,
                   });
           db.collection('Picked').doc(this.ids + this.id).delete()
+          db.collection('Picked3').doc(this.ids + this.id).delete()
+          db.collection('Picked4').doc(this.ids + this.id).delete()
         }
 
 
+      },
+      pick3() {
+        var user = firebase.auth().currentUser;
+        if(this.ID3){
+          db.collection('Picked3').doc(this.ids + this.id).delete()
+        }else{
+          db.collection("Picked3")
+                  .doc(this.ids + this.id)
+                  .set({
+                    time: Date.now(),
+                    user_id: user.uid,
+                    Meme_id: this.ids,
+                  });
+          db.collection('Picked').doc(this.ids + this.id).delete()
+          db.collection('Picked2').doc(this.ids + this.id).delete()
+          db.collection('Picked4').doc(this.ids + this.id).delete()
+        }
+      },
+        pick4() {
+        var user = firebase.auth().currentUser;
+        if(this.ID4){
+          db.collection('Picked4').doc(this.ids + this.id).delete()
+        }else{
+          db.collection("Picked4")
+                  .doc(this.ids + this.id)
+                  .set({
+                    time: Date.now(),
+                    user_id: user.uid,
+                    Meme_id: this.ids,
+                  });
+          db.collection('Picked').doc(this.ids + this.id).delete()
+          db.collection('Picked2').doc(this.ids + this.id).delete()
+          db.collection('Picked3').doc(this.ids + this.id).delete()
+        }
       }
 
     },
@@ -404,6 +498,8 @@
       return {
         Picked: db.collection('Picked'),
         Picked2: db.collection('Picked2'),
+       PickedThird: db.collection('Picked3'),
+          PickedFourth: db.collection('Picked4'),
 
       }
     },
@@ -415,16 +511,31 @@
       Picked2likenum() {
         return this.Picked2.length;
       },
-      UID() {
-        return this.Picked2.find(map => map.user_id === this.id);
+        Picked3likenum() {
+        return this.PickedThird.length;
       },
+        Picked4likenum() {
+        return this.PickedFourth.length;
+      },
+
       comment() {
         return this.comments.length == 1;
       },
       ID() {
 
-        return this.Picked.find(map => map.user_id === this.id);
+              return this.Picked.find(map => map.user_id === this.id);
       },
+        UID() {
+            return this.Picked2.find(map => map.user_id === this.id);
+        },
+        ID3() {
+
+            return this.PickedThird.find(map => map.user_id === this.id);
+        },
+        ID4() {
+
+            return this.PickedFourth.find(map => map.user_id === this.id);
+        },
       Counter(){
         return this.comments.length
       }
@@ -443,6 +554,18 @@
       this.$binding("Picked2", fb.collection("Picked2").where('Meme_id', '==', this.ids))
               .then((ford) => {
                 this.Picked2 === ford // => __ob__: Observer
+              }).catch(err => {
+        console.error(err)
+      })
+        this.$binding("Picked3", fb.collection("Picked3").where('Meme_id', '==', this.ids))
+              .then((ford) => {
+                this.PickedFourth === ford // => __ob__: Observer
+              }).catch(err => {
+        console.error(err)
+      })
+        this.$binding("Picked4", fb.collection("Picked4").where('Meme_id', '==', this.ids))
+              .then((ford) => {
+                this.PickedFourth === ford // => __ob__: Observer
               }).catch(err => {
         console.error(err)
       })
