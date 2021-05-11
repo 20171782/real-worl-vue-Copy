@@ -106,7 +106,7 @@
                                       <i class="fa fa-thumbs-up" style="color:deepskyblue"></i>
                                   </div>
                                   <div class="mt-counter">
-                                      <p>{{image.likes}}</p>
+                                      <p @click="like()">{{image.likes}}</p>
                                   </div>
                               </div>
                               <div class="grid-box-reaction">
@@ -114,7 +114,7 @@
                                       <i class="fa fa-thumbs-down" style="color:red"></i>
                                   </div>
                                   <div class="mt-counter">
-                                      <p>{{image.dislikes}}</p>
+                                      <p @click="dislike">{{image.dislikes}}</p>
                                   </div>
                               </div>
                               <div class="grid-box-reaction">
@@ -408,6 +408,60 @@
                 Friends:[],
             };
         },
+
+        like(MemeID,likecount) {
+            var user = firebase.auth().currentUser;
+            if(this.ID){
+                db.collection('likes').doc(this.ids + this.id).delete().then(()=>{
+                    db.collection('Memes').doc(this.ids).update({
+                        likes:this.likenum,
+                        dislikes:this.dislikenum
+                    })
+                })
+            }else{
+                db.collection("likes")
+                    .doc(this.ids + this.id )
+                    .set({
+                        time: Date.now(),
+                        user_id: user.uid,
+                        Meme_id: this.ids
+                    });
+                db.collection('dislikes').doc(this.ids + this.id).delete().then(()=>{
+                    db.collection('Memes').doc(this.ids).update({
+                        likes:this.likenum,
+                        dislikes:this.dislikenum
+                    })
+                })
+            }
+
+        },
+        dislike(MemeID,dislikecount) {
+            var user = firebase.auth().currentUser;
+            if(this.UID){
+                db.collection('dislikes').doc(this.ids + this.id).delete().then(()=>{
+                    db.collection('Memes').doc(this.ids).update({
+                        dislikes:this.dislikenum,
+                        likes:this.likenum,
+                    })
+                })
+            }else{
+                db.collection("dislikes")
+                    .doc(this.ids + this.id)
+                    .set({
+                        time: Date.now(),
+                        user_id: user.uid,
+                        Meme_id: this.ids
+                    });
+                db.collection('likes').doc(this.ids + this.id).delete().then(()=>{
+                    db.collection('Memes').doc(this.ids).update({
+                        dislikes:this.dislikenum,
+                        likes:this.likenum,
+                    })
+                })
+            }
+        },
+
+
         firestore() {
             return {
                 frens: fb.collection('friendships'),

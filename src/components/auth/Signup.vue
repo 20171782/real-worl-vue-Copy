@@ -116,6 +116,22 @@
 <!--                    <input type="text" class="form-control" placeholder="`Answer *" value="" />-->
 <!--                  </div>-->
             <div class="form-group">
+              <input type="text" class="form-control" placeholder="Email *" v-model="email" />
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Password *" v-model="password" />
+            </div>
+            <div class="form-group">
+              <input  class="form-control" placeholder="Your Phone *" v-model.number="number" type="number">
+            </div>
+
+            <div class="form-group">
+              <input  class="form-control" placeholder="Alias *" v-model="alias" type="text">
+            </div>
+            <div class="form-group">
+              <p style="color: red" v-if="feedback" class="red-text center">{{ feedback }}</p>
+            </div>
+            <div class="form-group">
               <button @click="signup"class="btnRegister">Signup</button>
             </div>
 <!--                  <input type="submit"   value="Register"/>-->
