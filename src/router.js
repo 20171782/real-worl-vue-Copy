@@ -20,6 +20,9 @@ import user from "@/components/User/createProfile";
 
 import memes from "@/views/UploadImages";
 import question from "@/views/Q&A";
+import createGroup from "@/views/createGroup";
+import displayGroups from "@/views/displayGroups";
+import singleGroup from "@/views/singleGroup";
 
 
 
@@ -165,6 +168,22 @@ const router = new Router({
       path: "/question",
       name: "Q&A",
       component:question
+    },
+
+    {
+      path: "/createGroup",
+      name: "createGroup",
+      component:createGroup
+    },
+    {
+      path: "/displayGroups",
+      name: "displayGroups",
+      component:displayGroups
+    },
+    {
+      path: "/singleGroup/:id",
+      name: "singleGroup",
+      component:singleGroup
     },
 
 

@@ -1,45 +1,32 @@
 <template>
-    <div class="uk-container uk-section uk-section-muted" style="margin-top: 0px" >
-        <div uk-slider="center: true">
-<h3>People you may know</h3>
-            <div  class="uk-position-relative uk-visible-toggle uk-light " tabindex="-1" >
-                <div class=" uk-slider-items uk-child-width-1-1@s uk-child-width-1-3@m" >
-                    <div class="card" v-for="use in users">
-                        <canvas class="header-bg" width="20" height="70" id="header-blur"></canvas>
-                        <div class="avatar">
-                            <img :src="use.image" alt="" />
-                        </div>
-                        <div class="content">
-                            <p>{{use.name}} <br>
-                                More description here</p>
-                            <div class="">
-
-                                <button class="btn btn-light" type="button"
-                                        v-if="!test(use.id) && !confirm(use.id)"
-                                        @click="addfren(use.id, use.image, use.name, use.alias)"
-                                >
-                                    <i class="fa fa-user-plus">connect</i>
-                                </button>
-
-                                <div style="margin-bottom: auto;" v-else class="uk-alert-primary" uk-alert>
-                                    <a class="uk-alert-close" uk-close ></a>
-                                    <p>
-                                        {{ msg }}<span>{{ use.name }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+    <div class="uk-margin-top">
+        <div class="box-share" >
+            <p class="txt-share"><strong>People You May Know</strong></p>
+            <div v-for="use in users" class="grid-share">
+                <div>
+                    <img :src="use.image" alt="" class="img-share"/>
+                </div>
+                <div>
+                    <router-link :to="'/profile/' + use.alias  "> <p>
+                        <strong style="color: #800080 !important;">{{ use.alias}}</strong></p>
+                        <p style="color: #800080 !important;" class="username">@julian_duque</p>
+                    </router-link>
+                </div>
+                <div>
+                    <button    v-if="!test(use.id) && !confirm(use.id)"  @click="addfren(use.id, use.image, use.name, use.alias)"
+                             class="button-signup fondo-color-signup">
+                        <strong>Seguir</strong>
+                    </button>
+                    <div style="margin-bottom: auto;" v-else class="uk-alert-primary" uk-alert>
+                        <a class="uk-alert-close" uk-close ></a>
+                        <p>
+                           <span>{{ use.alias }}</span>
+                        </p>
                     </div>
                 </div>
-
-                <a style="color: #009b3a" class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                <a style="color: #009b3a" class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-
             </div>
-
-            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-
         </div>
+
     </div>
 </template>
 
@@ -151,56 +138,97 @@
 
 
 
-    .src-image {
-        display: none;
-    }
-
-    .card {
-        overflow: hidden;
-        position: relative;
-        border: 1px solid #CCC;
-        border-radius: 8px;
-        text-align: center;
+    * {
+        margin: 0;
         padding: 0;
-        margin:10px;
-        /*background-color: black;*/
-        /*color: rgb(136, 172, 217);*/
-        color: black;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
     }
 
-    .card .header-bg {
-        /* This stretches the canvas across the entire hero unit */
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 70px;
-        /*border-bottom: 1px rgba(0, 155, 58, 0.9) solid;*/
-        border-bottom: 1px #e9ebee solid;
-        /* This positions the canvas under the text */
-        z-index: 1;
+    .wrapper-left .sidebar-left {
+        position: fixed;
+        width: 276px;
+        height: 100%;
+        background-color: #ffffff;
+        font-size: 19px;
+        border-right: 0.5px solid #e6ecf0;
+        margin-left: 40px;
     }
-    .card .avatar {
+
+
+    .input-group-login > .custom-select:not(:first-child),
+    .input-group-login > .form-control-login:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .input-group-login > .custom-file,
+    .input-group > .custom-select,
+    .input-group-login > .form-control-login {
         position: relative;
-        margin-top: 15px;
-        z-index: 100;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+        margin-bottom: 0;
     }
 
-    .card .avatar img {
-        width: 100px;
-        height: 100px;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-        border: 5px solid  rgba(0, 155, 58, 0.9);
-        /*border: 5px solid #e9ebee;*/
+    button,
+    input {
+        overflow: visible;
     }
-    button{
 
-        background-image: linear-gradient(to bottom, #fed100, #5F206E  84%);
-        -pie-background: linear-gradient(to bottom, #fed100, #5F206E  84%);
-        /*background-color: #5F206E;*/
-        border-bottom: 1px solid #29487d;
-        opacity: 0.9;
+
+    /* BOX-SHARE */
+    .box-share{
+        margin: 20px;
+        margin-right: 60px;
+        border-radius: 10px;
+        background-color: #F5F8FA;
+    }
+
+    .grid-share{
+        padding: 10px;
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 18% 60% auto;
+        transition: 0.5s;
+    }
+
+    .grid-share:hover{
+        transition: 0.5s;
+        background-color: #E6ECF0;
+    }
+
+    .txt-share{
+        font-size: 18.5px;
+        padding: 10px;
+    }
+    .img-share{
+        height: 49px;
+        width: 49px;
+        border-radius: 50px;
+    }
+
+    /* BUTTON SIGNUP */
+    .button-signup {
+        display: inline-block;
+        font-weight: 400;
+        color: #800080;
+        height: auto;
+        width: 78px;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid transparent;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        /* BORDER RADIUS */
+        border-radius: 28px 28px 28px 28px;
+        -moz-border-radius: 28px 28px 28px 28px;
+        -webkit-border-radius: 28px 28px 28px 28px;
+        border: 1px solid #800080;
+        cursor: pointer;
+        background-color: transparent;
     }
 </style>

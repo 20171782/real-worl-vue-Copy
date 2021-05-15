@@ -13,9 +13,7 @@
                 <div class="top">
                     <input type="text" class="uk-input"  placeholder="descriptiion..." v-model="description" />
                 </div>
-                <div class="top">
-                    <input type="text" class="uk-input"  placeholder="prediction..." v-model="prediction" />
-                </div>
+
 
                 <div class="top">
                     <input type="text" class="uk-input"  placeholder="TitleOne..." v-model="TitleOne" />
@@ -23,6 +21,21 @@
                 <div class="top">
                     <input type="text" class="uk-input"  placeholder="TitleTwo..." v-model="TitleTwo" />
                 </div>
+                <div class="top">
+                    <input type="text" class="uk-input"  placeholder="TitleThree..." v-model="TitleThree" />
+                </div>
+                <div class="top">
+                    <input type="text" class="uk-input"  placeholder="TitleFour..." v-model="TitleFour" />
+                </div>
+
+                <div class="top">
+                    <label for="">What is your prediction?{{prediction}}</label>
+                    <p style="color: green" @click="predictionOne">{{TitleOne}}</p>
+                    <p style="color: green" @click="predictionTwo">{{TitleTwo}}</p>
+                    <p style="color: green" @click="predictionThree">{{TitleThree}}</p>
+                    <p style="color: green" @click="predictionFour">{{TitleFour}}</p>
+                </div>
+
                 <!--          <label>Browser Select</label>-->
                 <br>
                 <label for="">Categories</label>
@@ -38,13 +51,6 @@
 
             </form>
 
-            <p uk-margin>
-
-
-                <button class="uk-button uk-button-primary uk-margin-left" @click="VideoUrl">Video Url</button>
-            </p>
-
-
 
 
             <div >
@@ -54,21 +60,27 @@
                 <div class="uk-margin">
                     <input class="uk-input" type="url" required placeholder="Second Video" v-model="SecondVideoUrl">
                 </div>
+                <div class="uk-margin">
+                    <input class="uk-input" type="url" required placeholder="Second Video" v-model="ThirdVideoUrl">
+                </div>
+                <div class="uk-margin">
+                    <input class="uk-input" type="url" required placeholder="Second Video" v-model="FourthVideoUrl">
+                </div>
                 <div class="js-upload" uk-form-custom>
                     <input type="file" multiple @change="thumbnail">
                     <button class="uk-button uk-button-default" type="button" tabindex="-1">thumbnail</button>
                 </div>
-                <p>
-                    {{VideoIdOne}}
-                </p>
-                <p>
-                    {{VideoIdTwo}}
-                </p>
+
                 <button  @click="getFirstID" class="uk-button " style="color: white !important;background-color: green">Get ID</button>
 
             </div>
 
-
+            <div>
+                <p>{{VideoIdOne}}</p>
+                <p>{{VideoIdTwo}}</p>
+                <p>{{VideoIdThree}}</p>
+                <p>{{VideoIdFour}}</p>
+            </div>
 
             <button
                     @click="sendMessage"
@@ -106,11 +118,17 @@
                 show:true,
                 FirstVideoUrl:'',
                 SecondVideoUrl:'',
+                ThirdVideoUrl:'',
+              FourthVideoUrl:'',
                 VideoIdOne:'',
                 VideoIdTwo:'',
+                VideoIdThree:'',
+                VideoIdFour:'',
                 prediction:'',
                 TitleOne:'',
                 TitleTwo:'',
+                TitleThree:'',
+                TitleFour:'',
                 thumb:''
 
 
@@ -118,6 +136,19 @@
             };
         },
         methods: {
+
+            predictionOne(){
+                this.prediction = this.TitleOne
+            },
+            predictionTwo(){
+                this.prediction = this.TitleTwo
+            },
+            predictionThree(){
+                this.prediction = this.TitleThree
+            },
+            predictionFour(){
+                this.prediction = this.TitleFour
+            },
             sendMessage() {
                 if (this.title) {
                     var user = firebase.auth().currentUser;
@@ -137,9 +168,13 @@
                             counter:0,
                             VideoIdOne:this.VideoIdOne,
                             VideoIdTwo:this.VideoIdTwo,
+                            VideoIdThree:this.VideoIdThree,
+                            VideoIdFour:this.VideoIdFour,
                             prediction:this.prediction,
                             TitleOne:this.TitleOne,
                             TitleTwo:this.TitleTwo,
+                            TitleThree:this.TitleThree,
+                            TitleFour:this.TitleFour,
                             thumb:this.thumb
 
                         }).then((data)=>{
@@ -174,62 +209,17 @@
                 }
             },
 
-            upload() {
-                this.$refs.fileInput.click()
-            },
-            uploadFile(event) {
-                const files = event.target.files
-                let filename = files[0].name
-                if (filename.lastIndexOf('.') <= 0) {
-                    return alert('Please enter a valid file')
-                }
-                const fileReader = new FileReader()
-                fileReader.addEventListener('load', () => {
-                    this.imageUrl = fileReader.result
-                })
-                fileReader.readAsDataURL(files[0])
-                this.image = files[0]
-                console.log(this.image)
 
-
-            },
             Reload(){
                 window.location.reload()
             },
-            Localimage(){
-                this.show = true
-            },
-            VideoUrl(){
-                this.show = false
-            },
-            uploadImage(e) {
-                let file = e.target.files[0]
-                console.log(file)
-                var storageRef = firebase.storage().ref('test/' + file.name);
-                let uploadTask = storageRef.put(file)
-
-                uploadTask.on('state_changed',
-                    (snapshot) => {
 
 
-                    },
-                    (error) => {
-                        // Handle unsuccessful uploads
-                    },
-                    () => {
-                        // Handle successful uploads on complete
-                        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-                        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-                            this.SecondImageUrl = downloadURL;
-                            console.log('File available at', downloadURL);
-                        });
-                    }
-                );
-
-            },
             getFirstID(){
                 this.VideoIdOne = this.FirstVideoUrl.split("v=")[1].substring(0, 11);
                 this.VideoIdTwo = this.SecondVideoUrl.split("v=")[1].substring(0, 11);
+                this.VideoIdThree = this.ThirdVideoUrl.split("v=")[1].substring(0, 11);
+                this.VideoIdFour = this.FourthVideoUrl.split("v=")[1].substring(0, 11);
             } ,
             thumbnail(e) {
                 let file = e.target.files[0]

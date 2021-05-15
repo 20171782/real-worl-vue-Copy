@@ -1,5 +1,7 @@
 <template>
     <div class="border-right ">
+
+        <createPost></createPost>
         <div class="grid-toolbar-center uk-margin-top">
             <div class="center-input-search ">
                 <div class="input-group-login" id="shadow">
@@ -22,8 +24,7 @@
             </div>
 
         </div>
-
-       <div  v-for="image in images" :key="image.timestamp" class=" uk-card-default " v-if="image.privacy == 'Public'">
+       <div  v-for="image in images" :key="image.timestamp" class=" uk-card-default uk-margin-top" v-if="image.privacy == 'Public'">
            <div >
               <h1 class="uk-text-center inner-shadow uk-text-capitalize" style="padding-top: 10px"></h1>
                <div class="box-tweet">
@@ -56,6 +57,16 @@
                                   <div class="col-sm-3 nopadding">
                                       <div class="embed-responsive embed-responsive-16by9">
                                           <iframe  style="border-radius: 10px;padding-left: 3px" :src="'https://www.youtube-nocookie.com/embed/' + image.VideoIdTwo + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="880" height="515" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+                                      </div>
+                                  </div>
+                                   <div class="col-sm-3 nopadding">
+                                      <div class="embed-responsive embed-responsive-16by9">
+                                          <iframe  style="border-radius: 10px;padding-left: 3px" :src="'https://www.youtube-nocookie.com/embed/' + image.VideoIdThree + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="880" height="515" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+                                      </div>
+                                  </div>
+                                   <div class="col-sm-3 nopadding">
+                                      <div class="embed-responsive embed-responsive-16by9">
+                                          <iframe  style="border-radius: 10px;padding-left: 3px" :src="'https://www.youtube-nocookie.com/embed/' + image.VideoIdFour+ '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="880" height="515" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
                                       </div>
                                   </div>
                               </div></router-link>
@@ -409,57 +420,7 @@
             };
         },
 
-        like(MemeID,likecount) {
-            var user = firebase.auth().currentUser;
-            if(this.ID){
-                db.collection('likes').doc(this.ids + this.id).delete().then(()=>{
-                    db.collection('Memes').doc(this.ids).update({
-                        likes:this.likenum,
-                        dislikes:this.dislikenum
-                    })
-                })
-            }else{
-                db.collection("likes")
-                    .doc(this.ids + this.id )
-                    .set({
-                        time: Date.now(),
-                        user_id: user.uid,
-                        Meme_id: this.ids
-                    });
-                db.collection('dislikes').doc(this.ids + this.id).delete().then(()=>{
-                    db.collection('Memes').doc(this.ids).update({
-                        likes:this.likenum,
-                        dislikes:this.dislikenum
-                    })
-                })
-            }
 
-        },
-        dislike(MemeID,dislikecount) {
-            var user = firebase.auth().currentUser;
-            if(this.UID){
-                db.collection('dislikes').doc(this.ids + this.id).delete().then(()=>{
-                    db.collection('Memes').doc(this.ids).update({
-                        dislikes:this.dislikenum,
-                        likes:this.likenum,
-                    })
-                })
-            }else{
-                db.collection("dislikes")
-                    .doc(this.ids + this.id)
-                    .set({
-                        time: Date.now(),
-                        user_id: user.uid,
-                        Meme_id: this.ids
-                    });
-                db.collection('likes').doc(this.ids + this.id).delete().then(()=>{
-                    db.collection('Memes').doc(this.ids).update({
-                        dislikes:this.dislikenum,
-                        likes:this.likenum,
-                    })
-                })
-            }
-        },
 
 
         firestore() {
@@ -598,6 +559,7 @@
 </script>
 
 <style scoped>
+
     .mt-post-tweet img{
         border-radius: 10px;
         /*height: 100px !important;*/

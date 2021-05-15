@@ -1,9 +1,7 @@
 <template>
     <div class="uk-margin-top">
 
-
         <div class="box-share" v-if="frens.length !=0 || Friends.length !=0">
-
             <p class="txt-share"><strong>Your Connections</strong></p>
 
 
@@ -49,6 +47,7 @@
 
             <span style='font-size:200px;'>&#128577;</span>
         </div>
+        <timestamp></timestamp>
 
     </div>
 </template>

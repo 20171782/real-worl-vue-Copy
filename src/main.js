@@ -18,6 +18,7 @@ import upload from '@/views/UploadImages'
 import imageInfo from '@/components/frames/imageInfo'
 import profileComment from '@/components/frames/profileComment'
 import pro from '@/components/frames/pro'
+import createPost from '@/components/frames/createPost'
 import topMemes from '@/components/topMemes/topMemes'
 import news from '@/components/new'
 import request from '@/components/requests'
@@ -106,6 +107,7 @@ Vue.component('Navigation', Navigation)
 Vue.component('Post', Post)
 Vue.component('Connections', Connections)
 Vue.component('smallProfile', smallProfile)
+Vue.component('createPost', createPost)
 
 import Grid from "./components/Grid";
 

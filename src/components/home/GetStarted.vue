@@ -14,7 +14,7 @@
 
                         <!-- Video URl  -->
                         <div class="row" v-if="gallery[0].VideoIdOne  && gallery[0].VideoIdTwo " >
-
+                        <!-- Video Url One        -->
                             <div class="col-lg-6 col-md-6">
                                 <aside>
                                     <iframe :src="'https://www.youtube-nocookie.com/embed/' + gallery[0].VideoIdOne + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="1920" height="1080" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
@@ -24,11 +24,11 @@
                                         <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
                                         <span class="pull-right">
 
-				<a v-if="ID" @click="pickfirst(gal.VideoIdOne,gal.Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+				<a v-if="ID" @click="pickfirst" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                   {{ PickedNum }} <i style="color: yellow"  class="fa fa-heart"></i>
                   <span  v-if="PickedNum"> You chose {{gallery[0].TitleOne}}</span>
                 </a>
-                      <a v-else @click="pickfirst(gal.VideoIdOne,gal.Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                      <a v-else @click="pickfirst" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                         <i  class="fa fa-heart"></i>
                         <span v-if="PickedNum">{{ PickedNum }}</span>
                       </a>
@@ -38,30 +38,75 @@
                                 </aside>
                             </div>
 
-                            <div class="col-lg-6 col-md-6">
+
+                            <!-- Video Url Two        -->
+                            <div class="col-lg-6 col-md-6" v-if="gal.VideoIdTwo">
                                 <aside>
                                     <iframe :src="'https://www.youtube-nocookie.com/embed/' + gallery[0].VideoIdTwo + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="1920" height="1080" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
 
                                     <div class="content-footer">
                                         <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
                                         <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
-                                        <span class="pull-right">
-
-				       <a  v-if="UID"  @click="pick2(gal.VideoIdTwo,gal.Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
-                  {{ Picked2likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
+                 <span class="pull-right">
+                     <a  v-if="UID"  @click="pick2" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                         {{ Picked2likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
                   <span  v-if="Picked2likenum"> You chose {{gallery[0].TitleTwo}}</span>
-                </a>
-                      <a v-else @click="pick2(gal.VideoIdTwo,gal.Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                     </a>
+                      <a v-else @click="pick2" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                         <i  class="fa fa-heart"></i>
                         <span v-if="Picked2likenum">{{ Picked2likenum }}</span>
                       </a>
 				</span>
-
                                     </div>
                                 </aside>
                             </div>
-                        </div>
 
+                            <!-- Video Url Three        -->
+                            <div class="col-lg-6 col-md-6" v-if="gal.VideoIdThree">
+                                <aside>
+                                    <iframe :src="'https://www.youtube-nocookie.com/embed/' + gallery[0].VideoIdThree + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="1920" height="1080" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+
+                                    <div class="content-footer">
+                                        <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                                        <span style="font-size: 16px;color: #fff;">{{gal.TitleThree}}</span>
+                 <span class="pull-right">
+                     <a v-if="ID3"  @click="pickThird" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                         {{ Picked3likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
+                  <span  v-if="Picked3likenum"> You chose {{gallery[0].TitleThree}}</span>
+                     </a>
+                      <a v-else @click="pickThird" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                        <i  class="fa fa-heart"></i>
+                        <span v-if="Picked3likenum">{{ Picked3likenum }}</span>
+                      </a>
+				</span>
+                                    </div>
+                                </aside>
+                            </div>
+
+                            <!-- Video Url Four        -->
+                            <div class="col-lg-6 col-md-6" v-if="gal.VideoIdFour">
+                                <aside>
+                                    <iframe :src="'https://www.youtube-nocookie.com/embed/' + gallery[0].VideoIdFour + '?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'" width="1920" height="1080" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+
+                                    <div class="content-footer">
+                                        <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
+                                        <span style="font-size: 16px;color: #fff;">{{gal.TitleTwo}}</span>
+                 <span class="pull-right">
+                    <a  v-if="ID4"  @click="pickFourth" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                  {{ Picked4likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
+                  <span  v-if="Picked4likenum"> You chose {{gallery[0].TitleThree}}</span>
+                </a>
+                      <a v-else @click="pickFourth" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                        <i  class="fa fa-heart"></i>
+                        <span v-if="Picked4likenum">{{ Picked4likenum }}</span>
+                      </a>
+				</span>
+                                    </div>
+                                </aside>
+                            </div>
+
+
+                        </div>
 
 
 
@@ -71,7 +116,7 @@
 
 
                         <!--  First Image            -->
-                            <div class="col-lg-6 col-md-6">
+                            <div class="col-lg-6 col-md-6" v-if="gal.image">
                                 <aside>
                                     <img :src="gallery[0].image" alt="">
 
@@ -96,7 +141,7 @@
 
 
                               <!--Second Image-->
-                            <div class="col-lg-6 col-md-6">
+                            <div class="col-lg-6 col-md-6" v-if="gal.secondImage">
                                 <aside>
                                     <img :src="gallery[0].secondImage" alt="">
 
@@ -120,7 +165,7 @@
                             </div>
 
                            <!-- Third Image      -->
-                            <div class="col-lg-6 col-md-6">
+                            <div class="col-lg-6 col-md-6" v-if="gal.ImageThree">
                                 <aside>
                                     <img :src="gallery[0].ImageThree" alt="">
 
@@ -129,11 +174,11 @@
                                         <span style="font-size: 16px;color: #fff;">{{gal.TitleThree}}</span>
                                         <span class="pull-right">
 
-				       <a  v-if="ID3"  @click="pick3" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+				       <a  v-if="ID3"  @click="pickThird" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                   {{ Picked3likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
                   <span  v-if="Picked3likenum"> You chose {{gallery[0].TitleThree}}</span>
                 </a>
-                      <a v-else @click="pick3" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                      <a v-else @click="pickThird" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                         <i  class="fa fa-heart"></i>
                         <span v-if="Picked3likenum">{{ Picked3likenum }}</span>
                       </a>
@@ -145,7 +190,7 @@
 
 
                           <!--   Fourth Image-->
-                            <div class="col-lg-6 col-md-6">
+                            <div class="col-lg-6 col-md-6" v-if="gal.ImageFour">
                                 <aside>
                                     <img :src="gallery[0].ImageFour" alt="">
 
@@ -154,11 +199,11 @@
                                         <span style="font-size: 16px;color: #fff;">{{gal.TitleFour}}</span>
                                         <span class="pull-right">
 
-				       <a  v-if="ID4"  @click="pick4" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+				       <a  v-if="ID4"  @click="pickFourth" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                   {{ Picked4likenum }} <i style="color: yellow"  class="fa fa-heart"></i>
-                  <span  v-if="Picked4likenum"> You chose {{gallery[0].TitleFour}}</span>
+                  <span  v-if="Picked4likenum"> You chose {{gallery[0].TitleThree}}</span>
                 </a>
-                      <a v-else @click="pick4" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                      <a v-else @click="pickFourth" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
                         <i  class="fa fa-heart"></i>
                         <span v-if="Picked4likenum">{{ Picked4likenum }}</span>
                       </a>
@@ -167,7 +212,6 @@
                                     </div>
                                 </aside>
                             </div>
-
 
 
                         </div>
@@ -246,18 +290,17 @@
                                     <div class="content-footer">
                                         <img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
                                         <span style="font-size: 16px;color: #fff;">{{gal.TitleOne}}</span>
-                                        <span class="pull-right">
-
-				<a v-if="ID"  @click="pickfirst(gallery[0].VideoOne,gallery[0].Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
-                  {{ PickedNum }}
-                    <i style="color: yellow"  class="fa fa-heart"></i>
-                  <span  v-if="PickedNum"> You chose {{gallery[0].TitleOne}}</span>
-                </a>
-                      <a v-else @click="pickfirst(gallery[0].VideoOne,gallery[0].Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
-                        <i  class="fa fa-heart"></i>
-                        <span v-if="PickedNum">{{ PickedNum }}</span>
-                      </a>
-				</span>
+                                <span class="pull-right">
+                                    <a v-if="ID"  @click="pickfirst(gallery[0].VideoOne,gallery[0].Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                                      {{ PickedNum }}
+                                        <i style="color: yellow"  class="fa fa-heart"></i>
+                                      <span  v-if="PickedNum"> You chose {{gallery[0].TitleOne}}</span>
+                                    </a>
+                                      <a v-else @click="pickfirst(gallery[0].VideoOne,gallery[0].Meme_id)" href="#" data-toggle="tooltip" data-placement="right" title="Loved">
+                                        <i  class="fa fa-heart"></i>
+                                        <span v-if="PickedNum">{{ PickedNum }}</span>
+                                      </a>
+				                </span>
                                     </div>
                                 </aside>
                             </div>
@@ -288,33 +331,6 @@
 
 
                         <h1 class="">{{ gallery[0].title }}</h1>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                         <!-- Like Button -->
@@ -418,7 +434,7 @@
       };
     },
     methods: {
-      pickfirst(link, memeID) {
+      pickfirst() {
         var user = firebase.auth().currentUser;
         if(this.ID){
           db.collection('Picked').doc(this.ids + this.id).delete()
@@ -429,8 +445,7 @@
                     time: Date.now(),
                     user_id: user.uid,
                     Meme_id: this.ids,
-                    Video:link,
-                    image:link
+
                   });
           db.collection('Picked2').doc(this.ids + this.id).delete()
           db.collection('Picked3').doc(this.ids + this.id).delete()
@@ -458,7 +473,24 @@
 
 
       },
-      pick3() {
+        pickFourth() {
+            var user = firebase.auth().currentUser;
+            if(this.ID4){
+                db.collection('Picked4').doc(this.ids + this.id).delete()
+            }else{
+                db.collection("Picked4")
+                    .doc(this.ids + this.id)
+                    .set({
+                        time: Date.now(),
+                        user_id: user.uid,
+                        Meme_id: this.ids,
+                    });
+                db.collection('Picked').doc(this.ids + this.id).delete()
+                db.collection('Picked2').doc(this.ids + this.id).delete()
+                db.collection('Picked3').doc(this.ids + this.id).delete()
+            }
+        },
+      pickThird() {
         var user = firebase.auth().currentUser;
         if(this.ID3){
           db.collection('Picked3').doc(this.ids + this.id).delete()
@@ -475,23 +507,8 @@
           db.collection('Picked4').doc(this.ids + this.id).delete()
         }
       },
-        pick4() {
-        var user = firebase.auth().currentUser;
-        if(this.ID4){
-          db.collection('Picked4').doc(this.ids + this.id).delete()
-        }else{
-          db.collection("Picked4")
-                  .doc(this.ids + this.id)
-                  .set({
-                    time: Date.now(),
-                    user_id: user.uid,
-                    Meme_id: this.ids,
-                  });
-          db.collection('Picked').doc(this.ids + this.id).delete()
-          db.collection('Picked2').doc(this.ids + this.id).delete()
-          db.collection('Picked3').doc(this.ids + this.id).delete()
-        }
-      }
+
+
 
     },
     firestore(){
@@ -499,7 +516,8 @@
         Picked: db.collection('Picked'),
         Picked2: db.collection('Picked2'),
        PickedThird: db.collection('Picked3'),
-          PickedFourth: db.collection('Picked4'),
+       PickedFourth: db.collection('Picked4'),
+
 
       }
     },
@@ -517,6 +535,7 @@
         Picked4likenum() {
         return this.PickedFourth.length;
       },
+
 
       comment() {
         return this.comments.length == 1;
@@ -536,6 +555,7 @@
 
             return this.PickedFourth.find(map => map.user_id === this.id);
         },
+
       Counter(){
         return this.comments.length
       }
@@ -557,18 +577,20 @@
               }).catch(err => {
         console.error(err)
       })
+        this.$binding("Picked4", fb.collection("Picked4").where('Meme_id', '==', this.ids))
+            .then((ford) => {
+                this.PickedFourth === ford // => __ob__: Observer
+            }).catch(err => {
+            console.error(err)
+        })
         this.$binding("Picked3", fb.collection("Picked3").where('Meme_id', '==', this.ids))
               .then((ford) => {
-                this.PickedFourth === ford // => __ob__: Observer
+                this.PickedThird === ford // => __ob__: Observer
               }).catch(err => {
         console.error(err)
       })
-        this.$binding("Picked4", fb.collection("Picked4").where('Meme_id', '==', this.ids))
-              .then((ford) => {
-                this.PickedFourth === ford // => __ob__: Observer
-              }).catch(err => {
-        console.error(err)
-      })
+
+
 
     }
   };

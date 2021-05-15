@@ -78,13 +78,11 @@
 
 
 
-
-
-
-
             <button  style="background: #800080 !important;" class="button-twittear">
                 <strong>Twittear</strong>
             </button>
+
+
 
             <div class="box-user">
                 <div class="grid-user">
